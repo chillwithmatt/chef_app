@@ -1,2 +1,16 @@
 <%= @user.name %>
 <%= @user.email %>
+
+<li>
+	<% if current_user?(@user) %>
+		<%= link_to "Upload a Dish", new_dish_path %>
+	<% end %> 
+</li>
+
+<% @dishes.each do |dish| %>
+  <li>
+    <%#= link_to dish.name, dish %>
+    <%= link_to dish.name, '#' %>
+    <%= dish.description %>
+  </li>
+<% end %>
