@@ -7,7 +7,7 @@ class DishesController < ApplicationController
   def create
   	@dish = current_user.dishes.build(dish_params)
     if @dish.save
-      flash[:success] = "Dish Added!"
+      flash[:success] = "FART!"
       redirect_to current_user
     else
       render current_user
