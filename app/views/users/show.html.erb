@@ -1,16 +1,22 @@
 <%= @user.name %>
 <%= @user.email %>
 
-<li>
+<div>
 	<% if current_user?(@user) %>
 		<%= link_to "Upload a Dish", new_dish_path %>
 	<% end %> 
-</li>
+</div>
 
 <% @dishes.each do |dish| %>
-  <li>
-    <%#= link_to dish.name, dish %>
+  <div>
     <%= link_to dish.name, '#' %>
-    <%= dish.description %>
-  </li>
+    <li><%= dish.description %></li>
+	<% dish.assets.each do |asset| %>
+		<% if asset.photo? %>
+			<%= image_tag asset.photo.url(:thumb) %>
+		<% end %>
+	<% end %>
+
+  </div>
 <% end %>
+

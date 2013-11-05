@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   def new
   	@dish = Dish.new
+    5.times {@dish.assets.build}
   end
 
   def create
@@ -14,7 +15,6 @@ class DishesController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
@@ -23,6 +23,6 @@ class DishesController < ApplicationController
   private
 
     def dish_params
-      params.require(:dish).permit(:name, :description)
+      params.require(:dish).permit(:name, :description, :assets_attributes => :photo)
     end
 end

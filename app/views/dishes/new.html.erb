@@ -1,7 +1,7 @@
 <h1>Dishes#new</h1>
 <p>Find me in app/views/dishes/new.html.erb</p>
 
-<%= form_for(@dish) do |f| %>
+<%= form_for(@dish, :html => {:multipart => true} ) do |f| %>
 	<%#= render 'shared/error_messages' %>
 
     <%= f.label :name %>
@@ -9,6 +9,10 @@
 
     <%= f.label :description %>
     <%= f.text_field :description %>
+
+    <%= f.fields_for :assets do |asset| %>
+    	<div><%= asset.file_field :photo %></div>
+    <% end %>
 
     <%= f.submit "Submit a Dish" %>
 <% end %>
