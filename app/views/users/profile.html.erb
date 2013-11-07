@@ -1,0 +1,22 @@
+<h1>Complete your profile</h1>
+
+<%= form_for(@user) do |f| %>
+  	<%= render 'shared/error_messages' %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+
+    <%= f.label :style %>
+    <%= f.text_field :style %>
+
+    <%= f.label :signature_dish %>
+    <%= f.text_field :signature_dish %>
+
+    <%= f.submit "Update my account" %>
+<% end %>

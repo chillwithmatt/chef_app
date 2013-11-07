@@ -1,10 +1,17 @@
 ChefApp::Application.routes.draw do
-  resources :users
+  resources :users do
+    member do
+      get 'profile'
+    end
+  end
+  
   resources :sessions, only: [:new, :create, :destroy]
   resources :dishes
   resources :assets, only: [:destroy]
 
   root  'static_pages#home'
+
+  match '/profile', to: 'users#profile', via: 'get'
 
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'

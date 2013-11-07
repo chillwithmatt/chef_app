@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :signed_in_user, only: [:edit, :profile, :update, :destroy]
+  before_action :correct_user, only: [:edit, :profile, :update]
   before_action :admin_user,  only: :destroy
 
   def new
@@ -30,6 +30,9 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def profile
+  end
+
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
@@ -50,7 +53,7 @@ class UsersController < ApplicationController
  private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:name, :email, :city, :style, :signature_dish, :password,
       :password_confirmation)
     end
 

@@ -1,10 +1,10 @@
-<%= @user.name %><br>
-Los Angeles, CA<br>
-Style: Cajun, French, Fried Chicken<br>
-Signature Dish: Creme Brulee <br>
+<%= @user.name %>
+<div>City: <%= @user.city %></div>
+<div>Style: <%= @user.style %></div>
+<div>Signature Dish: <%= @user.signature_dish %></div>
 
 <% if current_user?(@user) %>
-	<%= link_to "Complete Your Profile", edit_user_path(@user) %>
+	<%= link_to "Complete Your Profile", profile_user_path(@user) %>
 <% end %><br><br>
 
 MENU
