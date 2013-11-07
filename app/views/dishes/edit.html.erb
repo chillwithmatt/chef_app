@@ -1,2 +1,22 @@
 <h1>Dishes#edit</h1>
 <p>Find me in app/views/dishes/edit.html.erb</p>
+
+<%= form_for(@dish,  :html => {:multipart => true} ) do |f| %>
+	<%#= render 'shared/error_messages' %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <div>Add additional photos</div>
+
+    <%= f.fields_for :assets do |asset| %>
+    	<% if asset.object.new_record? %>
+    		<div><%= asset.file_field :photo %></div>
+    	<% end %>
+    <% end %>
+
+    <%= f.submit "Submit" %>
+<% end %>

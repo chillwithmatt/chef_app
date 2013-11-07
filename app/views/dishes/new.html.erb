@@ -10,9 +10,13 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
 
+    <div>Upload a Photo of Your Dish!</div>
+
     <%= f.fields_for :assets do |asset| %>
     	<div><%= asset.file_field :photo %></div>
     <% end %>
 
     <%= f.submit "Submit" %>
 <% end %>
+
+

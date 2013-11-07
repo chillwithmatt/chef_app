@@ -1,22 +1,33 @@
-<%= @user.name %>
-<%= @user.email %>
+<%= @user.name %><br>
+Los Angeles, CA<br>
+Style: Cajun, French, Fried Chicken<br>
+Signature Dish: Creme Brulee <br>
 
+<% if current_user?(@user) %>
+	<%= link_to "Complete Your Profile", edit_user_path(@user) %>
+<% end %><br><br>
+
+MENU
 <div>
 	<% if current_user?(@user) %>
-		<%= link_to "Upload", new_dish_path %>
+		<%= link_to "Add a dish", new_dish_path %>
 	<% end %> 
 </div>
 
+
 <% @dishes.each do |dish| %>
-  <div>
-    <%= link_to dish.name, '#' %>
-    <li><%= dish.description %></li>
+    <br>Name: <%= dish.name %>
+    <div>Description: <%= dish.description %></div>
+    <div><% if current_user?(@user) %>
+    		<%= link_to "Edit", edit_dish_path(dish) %>
+    		<%= link_to "Delete", dish, method: :delete, data: {confirm: "You sure? All Associated Photos Will Also Be Deleted" } %></div>
+    	<% end %>
+
 	<% dish.assets.each do |asset| %>
-		<% if asset.photo? %>
-			<%= image_tag asset.photo.url(:thumb) %>
+		<%= image_tag asset.photo.url(:thumb) %>
+		<% if current_user?(@user) %>
+			<%= link_to "X", asset, method: :delete, data: {confirm: "Do you know what you're doing?" } %>
 		<% end %>
 	<% end %>
-
-  </div>
 <% end %>
 
