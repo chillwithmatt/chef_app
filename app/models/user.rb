@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 	
 	has_many :dishes, dependent: :destroy
 
+	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
 	has_secure_password
 
 	def User.new_remember_token
