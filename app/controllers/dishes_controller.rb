@@ -27,7 +27,6 @@ class DishesController < ApplicationController
   def update
     @dish = Dish.find(params[:id])
     if @dish.update_attributes(dish_params)
-      flash[:success] = "Photo Added"
       redirect_to current_user
     else
       redirect_to root_url

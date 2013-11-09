@@ -1,8 +1,41 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h1>CHEFAPP</h1>
 
-<% if !signed_in? %>
+<% if signed_in? %>
+	<% @users.each do |user| %>
+			<% unless user.dishes.blank? %>
+	   			<%= link_to image_tag(user.avatar(:thumb)), user %>
+	   			<% user.dishes.each do |dish| %>
+	   			  	<%= link_to user.name, user %> cooked up...
+	   				<% if dish = user.dishes.first %>
+	   					<%= dish.name %>
+	   					<%= time_ago_in_words(dish.created_at) %> ago.
+	   					<% break %>
+	   				<% end %>
+	   			<% end %><br>
+	   		<% end %>
+	 	<% end %>
+<% else %>
 
-<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %><br>
+
+<h2>Who's Cookin?</h2>
+<% @users.each do |user| %>
+		<% unless user.dishes.blank? %>
+   			<%= link_to image_tag(user.avatar(:thumb)), signin_path %>
+   			<% user.dishes.each do |dish| %>
+   			  	<%= link_to user.name, signin_path %> cooked up...
+   				<% if dish = user.dishes.first %>
+   					<%= dish.name %>
+   					<%= time_ago_in_words(dish.created_at) %> ago.
+   					<% break %>
+   				<% end %>
+   			<% end %><br>
+   		<% end %>
+ 	<% end %>
+
+
+
+
 
 <% end %>
+

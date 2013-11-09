@@ -4,7 +4,7 @@ ChefApp::Application.routes.draw do
       get 'profile'
     end
   end
-  
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :dishes
   resources :assets, only: [:destroy]

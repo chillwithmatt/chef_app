@@ -1,5 +1,5 @@
-<%= image_tag @user.avatar(:thumb) %>
-<div><%= @user.name %></div>
+<%= image_tag @user.avatar.url(:medium) %>
+<div>Chef <%= @user.name %></div>
 <div>City: <%= @user.city %></div>
 <div>Style: <%= @user.style %></div>
 <div>Signature Dish: <%= @user.signature_dish %></div>

@@ -3,9 +3,6 @@
 <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
 
-    Upload a profile picture:
-    <div><%= f.file_field :avatar %></div>
-
     <div><%= f.label :name %></div>
     <%= f.text_field :name %>
 

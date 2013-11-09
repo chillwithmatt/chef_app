@@ -4,10 +4,10 @@
 <%= form_for(@dish, :html => {:multipart => true} ) do |f| %>
 	<%#= render 'shared/error_messages' %>
 
-    <%= f.label :name %>
+    Give your dish a legendary name:
     <%= f.text_field :name %>
 
-    <%= f.label :description %>
+    Be as descriptive as you'd like:
     <%= f.text_field :description %>
 
     <div>Upload a Photo of Your Dish!</div>

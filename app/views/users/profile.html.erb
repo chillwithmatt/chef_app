@@ -3,6 +3,9 @@
 <%= form_for(@user) do |f| %>
   	<%= render 'shared/error_messages' %>
 
+    Choose a profile picture:
+    <div><%= f.file_field :avatar %></div>
+
     <div><%= f.label :city %></div>
     <%= f.text_field :city %>
 
