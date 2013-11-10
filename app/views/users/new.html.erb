@@ -2,7 +2,7 @@
 <p>Find me in app/views/users/new.html.erb</p>
 
 <%= form_for(@user) do |f| %>
-  	<%= render 'shared/error_messages' %>
+  	<%= render 'shared/error_messages', object: f.object %>
 
     Upload a profile picture:
     <div><%= f.file_field :avatar %></div>

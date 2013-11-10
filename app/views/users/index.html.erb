@@ -1,18 +1,18 @@
 <h1>All users</h1>
 
 <% @users.each do |user| %>
-  	<div><%= link_to user.name, user %></div> 
-  
-   	<%= link_to image_tag(user.avatar(:thumb)), user %><br>
-        <% if current_user && current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
+  	<%= link_to user.name, user %>
+    <% if current_user.admin? && !current_user?(user) %> | 
+    	<%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
-  		<% end %>
-  
-
+  	<% end %><br>
+  	
+  	<%= link_to image_tag(user.avatar(:thumb)), user %>
+  	
   	<% if user.style? %>
   		<div>Style: <%= user.style %></div>
   	<% end %>
+  	
   	<% if user.dishes %>
     	<div>Dishes: <%= user.dishes.count %></div>
     <% end %>

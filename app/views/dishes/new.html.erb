@@ -2,7 +2,7 @@
 <p>Find me in app/views/dishes/new.html.erb</p>
 
 <%= form_for(@dish, :html => {:multipart => true} ) do |f| %>
-	<%#= render 'shared/error_messages' %>
+	<%= render 'shared/error_messages', object: f.object %>
 
     Give your dish a legendary name:
     <%= f.text_field :name %>

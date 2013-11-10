@@ -7,9 +7,10 @@ class DishesController < ApplicationController
   def create
   	@dish = current_user.dishes.build(dish_params)
     if @dish.save
-      flash[:success] = "YOU DID IT! MORE?"
+      flash[:success] = "Dish Added. YUM!"
       redirect_to current_user
     else
+      5.times {@dish.assets.build}
       render 'new'
     end
   end
@@ -29,7 +30,7 @@ class DishesController < ApplicationController
     if @dish.update_attributes(dish_params)
       redirect_to current_user
     else
-      redirect_to root_url
+      redirect_to current_user
     end
   end
 

@@ -1,41 +1,23 @@
 <h1>CHEFAPP</h1>
 
-<% if signed_in? %>
-	<% @users.each do |user| %>
-			<% unless user.dishes.blank? %>
-	   			<%= link_to image_tag(user.avatar(:thumb)), user %>
-	   			<% user.dishes.each do |dish| %>
-	   			  	<%= link_to user.name, user %> cooked up...
-	   				<% if dish = user.dishes.first %>
-	   					<%= dish.name %>
-	   					<%= time_ago_in_words(dish.created_at) %> ago.
-	   					<% break %>
-	   				<% end %>
-	   			<% end %><br>
-	   		<% end %>
-	 	<% end %>
-<% else %>
-
-<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %><br>
-
 <h2>Who's Cookin?</h2>
-<% @users.each do |user| %>
-		<% unless user.dishes.blank? %>
-   			<%= link_to image_tag(user.avatar(:thumb)), signin_path %>
-   			<% user.dishes.each do |dish| %>
-   			  	<%= link_to user.name, signin_path %> cooked up...
-   				<% if dish = user.dishes.first %>
-   					<%= dish.name %>
-   					<%= time_ago_in_words(dish.created_at) %> ago.
-   					<% break %>
-   				<% end %>
-   			<% end %><br>
-   		<% end %>
- 	<% end %>
 
-
-
-
-
+<% unless signed_in? %>
+<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %><br><br>
 <% end %>
 
+<% @users.each do |user| %>
+	<% unless user.dishes.blank? %>
+		<%= link_to image_tag(user.avatar(:thumb)), user %>
+		<% user.dishes.each do |dish| %>
+		  	<%= link_to user.name, user %> cooked up...
+			<% if dish = user.dishes.first %>
+				<%= dish.name %>
+				<%= time_ago_in_words(dish.created_at) %> ago.
+				<% break %>
+			<% end %>
+	   	<% end %><br>
+	<% end %>
+<% end %>
+
+order user by dish created_at

@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
-	
+
+	default_scope -> { order('created_at DESC') }	
+
 	has_many :dishes, dependent: :destroy
 
 	has_attached_file :avatar, :styles => { :medium => "200x200#", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
@@ -12,6 +14,8 @@ class User < ActiveRecord::Base
   	validates :city, presence: true
 
 	has_secure_password
+
+
 
 	def User.new_remember_token
     	SecureRandom.urlsafe_base64
