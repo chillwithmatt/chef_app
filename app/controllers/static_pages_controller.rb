@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
   	@users = User.all
+  	@recent_dishes = Dish.all(:group => "user_id")
   end
 
   def help
