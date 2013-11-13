@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   	validates :email, presence: true
   	validates :city, presence: true
 
-	has_secure_password
+	#has_secure_password
 
 	def self.from_omniauth(auth)
 	   		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
