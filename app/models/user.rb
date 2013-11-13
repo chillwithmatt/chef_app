@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   	validates :email, presence: true
   	validates :city, presence: true
 
-	#has_secure_password
+	has_secure_password
 
 	def self.from_omniauth(auth)
 	   		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
 	   		user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 	   		user.email = auth.info.email
 	   		user.city = auth.info.location
-	   		user.password ||= nil
-	   		user.password_confirmation ||= nil
+	   		user.password ||= SecureRandom.urlsafe_base64(n=6)
+	   		user.password_confirmation ||= user.password
 	   		user.save!
 		end
 	end
