@@ -15,6 +15,21 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
+	def self.from_omniauth(auth)
+	   		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+	   		user.provider = auth.provider
+	   		user.uid = auth.uid
+	   		user.name = auth.info.name
+	   		user.oauth_token = auth.credentials.token
+	   		user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+	   		user.email = auth.info.email
+	   		user.city = auth.info.location
+	   		user.password ||= nil
+	   		user.password_confirmation ||= nil
+	   		user.save!
+		end
+	end
+
 	def User.new_remember_token
     	SecureRandom.urlsafe_base64
   	end

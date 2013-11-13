@@ -1,7 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
   	@users = User.all
-  	@recent_dishes = Dish.all(:select => "count(name), name, max(created_at) as created_at, user_id", :group => "user_id")
+  	@recent_dishes = Dish.select(:name,:user_id,:created_at).distinct
+                  
+              
   end
 
   def help

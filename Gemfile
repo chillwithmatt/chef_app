@@ -8,6 +8,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
+gem 'omniauth-facebook', '1.4.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

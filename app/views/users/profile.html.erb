@@ -4,6 +4,7 @@
   	<%= render 'shared/error_messages', object: f.object %>
 
     Choose a profile picture:
+    <div><%= image_tag(@user.avatar(:thumb)) %></div>
     <div><%= f.file_field :avatar %></div>
 
     <div><%= f.label :style %></div>
