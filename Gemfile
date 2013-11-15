@@ -9,6 +9,8 @@ gem 'faker', '1.1.2'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'omniauth-facebook', '1.4.0'
+gem 'koala'
+gem 'delayed_job_active_record'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

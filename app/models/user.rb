@@ -30,6 +30,21 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def self.share_dish(user_id, user_url)
+  		user = User.find(user_id)
+  		user.facebook.put_connections("me", "mattchefapp:cook", dish: user_url)
+	end
+
+	def facebook
+	    @facebook ||= Koala::Facebook::API.new(oauth_token)
+	    #block_given? this is to prevent errors when permissions 
+	    #are lost when a user logs out of fb. railscasts 361
+	    block_given? ? yield(@facebook) : @facebook
+	    rescue Koala::Facebook::APIError => e
+	    logger.info e.to_s
+	    nil
+ 	end
+
 	def User.new_remember_token
     	SecureRandom.urlsafe_base64
   	end

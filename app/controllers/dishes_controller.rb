@@ -5,10 +5,12 @@ class DishesController < ApplicationController
   end
 
   def create
+    @user = User.find(current_user)
   	@dish = current_user.dishes.build(dish_params)
     if @dish.save
       flash[:success] = "Dish Added. YUM!"
       redirect_to current_user
+      User.delay.share_dish(current_user.id, user_url(@user))
     else
       5.times {@dish.assets.build}
       render 'new'

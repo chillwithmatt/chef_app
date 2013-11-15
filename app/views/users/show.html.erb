@@ -1,3 +1,12 @@
+<% content_for :head do %>
+  <%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
+  <%= tag :meta, property: "og:site_name", content: "chefapp" %>
+  <%= tag :meta, property: "og:type", content: "mattchefapp:dish" %>
+  <%= tag :meta, property: "og:title", content: @dish.name %>
+  <%= tag :meta, property: "og:url", content: user_url(@user) %>
+<% end %>
+
+
 <%= image_tag @user.avatar.url(:medium) %>
 <div>Chef <%= @user.name %></div>
 <div>City: <%= @user.city %></div>

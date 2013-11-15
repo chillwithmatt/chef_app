@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:show, :edit, :profile, :index, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :profile, :index, :update, :destroy]
   before_action :correct_user, only: [:edit, :profile, :update]
   before_action :admin_user,  only: :destroy
 
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @avatar = @user.avatar
+    @dish = Dish.first
     @dishes = @user.dishes
   end
 
