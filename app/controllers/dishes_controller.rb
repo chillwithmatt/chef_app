@@ -10,11 +10,14 @@ class DishesController < ApplicationController
     if @dish.save
       flash[:success] = "Dish Added. YUM!"
       redirect_to current_user
-      User.delay.share_dish(current_user.id, user_url(@user))
+      User.delay.share_dish(current_user.id, user_url(@user) + "?" + CGI::escape(@dish.name) )
     else
       5.times {@dish.assets.build}
       render 'new'
     end
+  end
+
+  def show
   end
 
   def destroy

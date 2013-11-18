@@ -21,7 +21,8 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @avatar = @user.avatar
-    @dish = Dish.first
+    @dish = @user.dishes.first
+    @asset = @dish.assets.first
     @dishes = @user.dishes
   end
 
