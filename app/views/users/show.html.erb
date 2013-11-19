@@ -5,18 +5,18 @@
 		<%= tag :meta, property: "og:type", content: "mattchefapp:dish" %>
 		<%= tag :meta, property: "og:title", content: @dish.name %>
 	    <%= tag :meta, property: "og:url", content: user_url(@user) + "?" + CGI::escape(@dish.name) %>
-	    <%= tag :meta, property: "og:image", content: image_path(@asset.photo) %>
+	    <%#= tag :meta, property: "og:image", content: image_path(@asset.photo) %>
 	<% end %>
 <% end %>
 
-<%= image_tag @user.avatar.url(:medium) %>
-<div>Chef <%= @user.name %></div>
-<div>City: <%= @user.city %></div>
-<div>Style: <%= @user.style %></div>
-<div>Signature Dish: <%= @user.signature_dish %></div>
+<%= image_tag @user.avatar.url(:medium) %><br>
+Chef <%= @user.name %><br>
+City: <%= @user.city %><br>
+Style: <%= @user.style %><br>
+Signature Dish: <%= @user.signature_dish %><br>
 
 <% if current_user?(@user) %>
-	<%= link_to "Complete Your Profile", profile_user_path(@user) %><br><br>
+	<%= link_to "Complete Your Profile", profile_user_path(@user) %><br>
 <% end %> 
 
 <% if !@user.dishes.blank? %><br>
@@ -25,21 +25,8 @@
 		<%= link_to "Add a dish", new_dish_path %>
 	<% end %>
 
-	<% @dishes.each do |dish| %><br><br>
-	    Name: <%= dish.name %>
-	    <div>Description: <%= dish.description %></div>
-	    <div><% if current_user?(@user) %>
-	    		<%= link_to "Edit", edit_dish_path(dish) %>
-	    		<%= link_to "Delete", dish, method: :delete, data: {confirm: "You sure? All Associated Photos Will Also Be Deleted" } %></div>
-	    	<% end %>
+	<%= render 'users/dishes' %>
 
-		<% dish.assets.each do |asset| %>
-			<%= image_tag asset.photo.url(:thumb) %>
-			<% if current_user?(@user) %>
-				<%= link_to "X", asset, method: :delete, data: {confirm: "Do you know what you're doing?" } %>
-			<% end %>
-		<% end %>
-	<% end %>	
 <% else %><br>
 	<%= @user.name %> hasn't cooked any dishes yet.
 	<% if current_user?(@user) %><br>

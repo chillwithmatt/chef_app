@@ -16,6 +16,10 @@
     	<div><%= asset.file_field :photo %></div>
     <% end %>
 
+    <%= f.check_box :for_sale %>
+
+    This Dish is for Sale!<br>
+
     <%= f.submit "Submit" %>
 <% end %>
 
