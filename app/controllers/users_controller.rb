@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.top.search(params[:search])
   end
 
   def edit

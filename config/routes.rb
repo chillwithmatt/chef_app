@@ -12,8 +12,8 @@ ChefApp::Application.routes.draw do
 
   root  'static_pages#home'
 
-  match 'feedbacks' => 'feedbacks#create', :as => :feedback, via: 'post'
-  match 'feedbacks/new' => 'feedbacks#new', :as => :new_feedback, via: 'get'
+  match 'feedbacks', to: 'feedbacks#create', :as => :feedback, via: 'post'
+  match 'feedbacks/new', to: 'feedbacks#new', :as => :new_feedback, via: 'get'
 
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'

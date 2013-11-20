@@ -1,7 +1,7 @@
 class DishesController < ApplicationController
   def new
   	@dish = Dish.new
-    5.times {@dish.assets.build}
+    4.times {@dish.assets.build}
   end
 
   def create
@@ -12,7 +12,7 @@ class DishesController < ApplicationController
       redirect_to current_user
       User.delay.share_dish(current_user.id, user_url(@user) + "?" + CGI::escape(@dish.name) )
     else
-      5.times {@dish.assets.build}
+      4.times {@dish.assets.build}
       render 'new'
     end
   end
@@ -27,7 +27,7 @@ class DishesController < ApplicationController
 
   def edit
     @dish = Dish.find(params[:id])
-    5.times {@dish.assets.build}
+    4.times {@dish.assets.build}
   end
 
   def update
@@ -35,7 +35,8 @@ class DishesController < ApplicationController
     if @dish.update_attributes(dish_params)
       redirect_to current_user
     else
-      redirect_to current_user
+      4.times {@dish.assets.build}
+      render 'edit'
     end
   end
 

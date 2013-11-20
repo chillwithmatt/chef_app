@@ -4,7 +4,7 @@
 	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %><br>
 <% end %>
 
-<h2>Who's Cookin?</h2>
+<h2>What's Cookin?</h2>
 
 <% @recent_dishes.each do |dish| %>
 	<%= link_to image_tag(dish.user.avatar(:thumb)), dish.user %>

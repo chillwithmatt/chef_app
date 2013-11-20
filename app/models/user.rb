@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 
-	default_scope -> { order('created_at DESC') }	
+	scope :top, joins(:dishes).select('users.id, users.name, users.city, users.style, count(dishes.id) AS dishes_count').group('users.id').order('dishes_count DESC')
+
+	default_scope -> { order('users.created_at DESC') }	
 
 	has_many :dishes, dependent: :destroy
 
@@ -14,6 +16,14 @@ class User < ActiveRecord::Base
   	validates :city, presence: true
 
 	has_secure_password
+
+	def self.search(search)
+  		if search
+    		find(:all, :conditions => ['users.city LIKE :search OR users.style LIKE :search OR users.name LIKE :search', {:search => "%#{search}%"}])
+  		else
+    		find(:all)
+  		end
+	end
 
 	def self.from_omniauth(auth)
 	   		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

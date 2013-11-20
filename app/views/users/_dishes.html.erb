@@ -1,6 +1,6 @@
 <% @dishes.each do |dish| %><br>
-	Name: <%= dish.name %><br>
-	Description: <%= dish.description %>
+	<%= dish.name %><br>
+	<%= dish.description %>
 	
 	<% if current_user?(@user) %>
 		<%= link_to "Edit", edit_dish_path(dish) %>
@@ -8,7 +8,7 @@
 	<% end %><br>
 
 	<% if dish.for_sale? %>
-		This Dish is for Sale! <%= mail_to @user.email, "Email Me", subject: "ChefApp: I want " + dish.name + " in my belly!", body: "Ask " + @user.name + " about pricing, location, and other important details about this dish...", target: "_blank" %><br>
+		This Dish is for Sale! <%= mail_to @user.email, "Email", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %><br>
 	<% end %>
 
 	<% dish.assets.each do |asset| %>
@@ -16,5 +16,5 @@
 		<% if current_user?(@user) %>
 			<%= link_to "X", asset, method: :delete, data: {confirm: "Do you know what you're doing?" } %>
 		<% end %>
-	<% end %>
+	<% end %><br>
 <% end %>
