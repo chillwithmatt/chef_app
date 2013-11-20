@@ -22,7 +22,7 @@ Signature Dish: <%= @user.signature_dish %><br>
 <% if !@user.dishes.blank? %><br>
 	MENU
 	<% if current_user?(@user) %><br>
-		<%= link_to "Add a dish", new_dish_path %>
+		<%= link_to "Add a dish", new_dish_path %><br>
 	<% end %>
 
 	<%= render 'users/dishes' %>

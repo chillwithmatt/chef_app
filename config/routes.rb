@@ -1,4 +1,5 @@
 ChefApp::Application.routes.draw do
+
   resources :users do
     member do
       get 'profile'
@@ -11,7 +12,8 @@ ChefApp::Application.routes.draw do
 
   root  'static_pages#home'
 
-  match '/profile', to: 'users#profile', via: 'get'
+  match 'feedbacks' => 'feedbacks#create', :as => :feedback, via: 'post'
+  match 'feedbacks/new' => 'feedbacks#new', :as => :new_feedback, via: 'get'
 
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
@@ -19,7 +21,7 @@ ChefApp::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#createfb', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
-
+  match '/profile', to: 'users#profile', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'

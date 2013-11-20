@@ -6,15 +6,15 @@
     	<%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
   	<% end %><br>
+
+    <%= link_to image_tag(user.avatar(:thumb)), user %>
   	
-  	<%= link_to image_tag(user.avatar(:thumb)), user %>
-  	
-  	<% if user.style? %>
-  		<div>Style: <%= user.style %></div>
-  	<% end %>
-  	
-  	<% if user.dishes %>
-    	<div>Dishes: <%= user.dishes.count %></div>
+    <% if user.style? %>
+      <div><%= user.style %></div>
     <% end %>
+
+  	<% if user.dishes %>
+    	<div><%= user.dishes.count %> dishes cooked</div>
+    <% end %><br>
 
 <% end %>
