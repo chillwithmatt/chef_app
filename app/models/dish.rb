@@ -8,4 +8,11 @@ class Dish < ActiveRecord::Base
 	has_many :assets, dependent: :destroy
 	accepts_nested_attributes_for :assets, allow_destroy: true
 
+	validates_presence_of :assets
+
+	def dish_photo
+		asset = assets.first
+		asset.photo
+	end
+
 end

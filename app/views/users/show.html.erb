@@ -5,7 +5,7 @@
 		<%= tag :meta, property: "og:type", content: "mattchefapp:dish" %>
 		<%= tag :meta, property: "og:title", content: @dish.name %>
 	    <%= tag :meta, property: "og:url", content: user_url(@user) + "?" + CGI::escape(@dish.name) %>
-	    <%#= tag :meta, property: "og:image", content: image_path(@asset.photo) %>
+	    <%= tag :meta, property: "og:image", content: @photo %>
 	<% end %>
 <% end %>
 
@@ -21,7 +21,7 @@ Signature Dish: <%= @user.signature_dish %><br>
 
 <% if !@user.dishes.blank? %><br>
 	MENU
-	<% if current_user?(@user) %><br>
+	<% if current_user?(@user) %>
 		<%= link_to "Add a dish", new_dish_path %><br>
 	<% end %>
 

@@ -1,8 +1,6 @@
 <%= link_to "Home", root_path %>
-
 <%= link_to "About", about_path %>
 <%#= link_to "Contact", contact_path %>
-
 
 <div>
 	<% if signed_in? %>
@@ -15,7 +13,5 @@
     	<li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
 	<% end %>
 </div><br>
-
-<div class="fb-share-button" data-href="<%= request.original_url %>" data-type="button"></div>
 
 <%= feedback_tab(:position => 'right') %>

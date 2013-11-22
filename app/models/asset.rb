@@ -8,5 +8,4 @@ class Asset < ActiveRecord::Base
 			:large => '600x600>'
 		}
 
-	validates :photo, presence: true
 end

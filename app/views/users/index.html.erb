@@ -1,4 +1,4 @@
-Search for Chefs by name, city, or style.
+Search for chefs by city, style, or name.
 <%= form_tag(users_path, :method => 'get') do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
