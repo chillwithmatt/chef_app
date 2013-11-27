@@ -1,17 +1,6 @@
 <h1>Complete your profile</h1>
 
 <%= form_for(@user) do |f| %>
-  	<%= render 'shared/error_messages', object: f.object %>
-
-    Choose a profile picture:
-    <div><%= image_tag(@user.avatar(:thumb)) %></div>
-    <div><%= f.file_field :avatar %></div>
-
-    <div><%= f.label :style %></div>
-    <%= f.text_field :style %>
-
-    <div><%= f.label :signature_dish %></div>
-    <%= f.text_field :signature_dish %>
-
-    <div><%= f.submit "Submit" %></div>
+  <%= render 'complete', f: f %>
+  <div><%= f.submit "Submit" %></div>
 <% end %>

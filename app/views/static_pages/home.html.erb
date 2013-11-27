@@ -1,30 +1,9 @@
 <h1>CHEFAPP beta</h1>
 
 <% if signed_in? %>
-	Search for chefs by city, style, or name.
-	<%= form_tag(users_path, :method => 'get') do %>
-	    <%= text_field_tag :search, params[:search] %>
-	    <%= submit_tag "Search", :name => nil %>
-	<% end %>
+	<%= render 'static_pages/signed_in' %>
 <% else %>
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %><br>
+	<%= render 'static_pages/not_signed_in' %>
 <% end %>
 
-<h2>How it works</h2>
-<ol>
-	<li>Cook delicious food and create a menu of dishes.</li>
-	<li>Place your menu items up for sale (if you wish).</li>
-	<li>Share your dishes with friends.</li>
-</ol>
 
-<h2>What's Cookin?</h2>
-<% if signed_in? %>
-	<%= link_to "Add a dish", new_dish_path %><br><br>
-<% end %>
-
-<% @recent_dishes.each do |dish| %>
-	<%= link_to image_tag(dish.user.avatar(:thumb)), dish.user %>
-	<%= link_to dish.user.name, dish.user %> cooked up...
-	<%= dish.name %>
-	<%= time_ago_in_words(dish.created_at) %> ago.<br>
-<% end %>

@@ -10,6 +10,14 @@
 <body>
 
 <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=779084158783665";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="fb-root"></div>
 
 <div><%= render 'layouts/header' %></div>
 <% flash.each do |key, value| %>
@@ -20,9 +28,6 @@
 <%= debug(params) if Rails.env.development? %>
 
 </body>
-
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-528d57a6207c9a00"></script>
 
 </html>
 

@@ -1,29 +1,30 @@
 <% content_for :head do %>
-	<% if @dish.present? %>
 		<%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
-		<%= tag :meta, property: "og:site_name", content: "chefapp" %>
-		<%= tag :meta, property: "og:type", content: "mattchefapp:dish" %>
-		<%= tag :meta, property: "og:title", content: @dish.name %>
-	    <%= tag :meta, property: "og:url", content: user_url(@user) + "?" + CGI::escape(@dish.name) %>
-	    <%= tag :meta, property: "og:image", content: @photo %>
-	<% end %>
+		<%= tag :meta, property: "og:title", content: "Chef " + @user.name %>
+		<%= tag :meta, property: "og:description", content: "Check out these homecooked dishes!" %>
+	    <%= tag :meta, property: "og:url", content: user_url(@user) %>
+	    <%= tag :meta, property: "og:image", content: image_url(@user.avatar(:medium)) %>
 <% end %>
 
+<h1>Chef <%= @user.name %></h1>
+
 <%= image_tag @user.avatar.url(:medium) %><br>
-Chef <%= @user.name %><br>
+
 City: <%= @user.city %><br>
-Style: <%= @user.style %><br>
-Signature Dish: <%= @user.signature_dish %><br>
+<% if @user.style.present? %>Style: <%= @user.style %><br><% end %>
+<% if @user.signature_dish.present? %>Signature Dish: <%= @user.signature_dish %><br><% end %>
 
 <% if current_user?(@user) %>
 	<%= link_to "Complete Your Profile", profile_user_path(@user) %><br>
 <% end %> 
 
-<% if !@user.dishes.blank? %><br>
+<% if @user.dishes.present? %><br>
 	MENU
 	<% if current_user?(@user) %>
-		<%= link_to "Add a dish", new_dish_path %><br>
-	<% end %>
+		<%= link_to "Add a dish", new_dish_path %>
+	<% end %><br>
+
+	<div class="fb-like" data-href="<%= user_url(@user) %>" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div><br>
 
 	<%= render 'users/dishes' %>
 
@@ -33,3 +34,4 @@ Signature Dish: <%= @user.signature_dish %><br>
 		<%= link_to "Add a dish", new_dish_path %>
 	<% end %>
 <% end %>
+

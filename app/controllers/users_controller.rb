@@ -21,12 +21,6 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @dishes = @user.dishes
-    @dish = @user.dishes.first
-    if @dish.present? && @dish.assets.present?
-      @photo = @dish.dish_photo
-    else
-      @photo = root_url + "/images/thumb/missing.png"
-    end
   end
 
   def index

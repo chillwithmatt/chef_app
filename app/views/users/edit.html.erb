@@ -1,22 +1,7 @@
-<h1>Edit your profile</h1>
+<h1>Update Your Settings</h1>
 
 <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-
-    <div><%= f.label :username %></div>
-    <%= f.text_field :name %>
-
-    <div><%= f.label :email %></div>
-    <%= f.text_field :email %>
-
-    <div><%= f.label :city %></div>
-    <%= f.text_field :city %>
-
-    <div><%= f.label :password %></div>
-    <%= f.password_field :password %>
-
-    <div><%= f.label :password_confirmation, "Confirmation" %></div>
-    <%= f.password_field :password_confirmation %>
-
-    <div><%= f.submit "Submit" %></div>
+    <%= render 'settings', f: f %>
+    <div><%= f.submit "Submit Changes" %></div>
 <% end %>

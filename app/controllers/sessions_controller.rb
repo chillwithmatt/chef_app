@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
     def createfb
         user = User.from_omniauth(env["omniauth.auth"])
         sign_in user
-        flash.now[:success] = 'Set your'
         redirect_back_or root_url
     end
 

@@ -3,8 +3,8 @@ class Asset < ActiveRecord::Base
 
 	has_attached_file :photo, 
 		:styles => {
-			:thumb => '150x150#',
-			:medium => '300x300>',
+			:thumb => '100x100#',
+			:medium => '200x200>',
 			:large => '600x600>'
 		}
 

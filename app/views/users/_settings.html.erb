@@ -1,0 +1,20 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+Choose a profile picture:
+<div><%= image_tag(@user.avatar(:thumb)) %></div>
+<div><%= f.file_field :avatar %></div>
+
+<div><%= f.label :Username %></div>
+<%= f.text_field :name %>
+
+<div><%= f.label :email %></div>
+<%= f.text_field :email %>
+
+<div><%= f.label :city %></div>
+<%= f.text_field :city %>
+
+<div><%= f.label :password %></div>
+<%= f.password_field :password %>
+
+<div><%= f.label :password_confirmation, "Confirmation" %></div>
+<%= f.password_field :password_confirmation %>

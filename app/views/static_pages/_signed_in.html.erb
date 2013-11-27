@@ -1,0 +1,17 @@
+Search for chefs by city, style, or name.
+<%= form_tag(users_path, :method => 'get') do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<h2>How it works</h2>
+<ol>
+	<li>Cook at home and add dishes to your menu.</li>
+	<li>Place your menu items up for sale (if you wish).</li>
+	<li>Share your dishes with friends.</li>
+</ol>
+
+<h2>What's Cookin?</h2>
+	<%= link_to "Add a dish", new_dish_path %><br><br>
+
+<%= render 'dishes/dish_feed' %>

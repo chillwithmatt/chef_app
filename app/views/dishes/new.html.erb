@@ -1,24 +1,23 @@
-<h1>Dishes#new</h1>
-<p>Find me in app/views/dishes/new.html.erb</p>
+<h1>Add a dish to your menu</h1>
 
 <%= form_for(@dish, :html => {:multipart => true} ) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 
-    Give your dish a legendary name:
+    Name your dish:
     <%= f.text_field :name %>
 
-    Be as descriptive as you'd like:
-    <%= f.text_field :description %>
+    Describe your dish:
+    <%= f.text_field :description %><br><br>
 
-    <div>Upload a Photo of Your Dish!</div>
+    <div>Most importantly, upload some photos!</div><br>
 
     <%= f.fields_for :assets do |asset| %>
     	<div><%= asset.file_field :photo %></div>
-    <% end %>
+    <% end %><br>
 
     <%= f.check_box :for_sale %>
 
-    This Dish is for Sale!<br>
+    This Dish is for Sale!<br><br>
 
     <%= f.submit "Submit" %>
 <% end %>

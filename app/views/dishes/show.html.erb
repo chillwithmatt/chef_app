@@ -1,0 +1,33 @@
+<% content_for :head do %>
+	<% if @dish.present? %>
+		<%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
+		<%= tag :meta, property: "fb:admins", content: "3402374" %>
+		<%= tag :meta, property: "og:site_name", content: "chefapp" %>
+		<%= tag :meta, property: "og:type", content: "mattchefapp:dish" %>
+		<%= tag :meta, property: "og:title", content: @dish.name %>
+		<%= tag :meta, property: "og:description", content: @dish.description %>
+	    <%= tag :meta, property: "og:url", content: dish_url(@dish) %>
+	    <%= tag :meta, property: "og:image", content: @photo %>
+	<% end %>
+<% end %>
+
+Dish: <%= @dish.name %><br>
+Description: <%= @dish.description %><br>
+
+<% if @dish.for_sale? %>
+	This Dish is for Sale! <%= mail_to @dish.user.email, "Email Me", subject: "Message from ChefApp: "+ @dish.name, body: "Ask " + @dish.user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %><br>
+<% end %>
+
+<% if current_user?(@dish.user) %>
+	<%= link_to "Edit", edit_dish_path(@dish) %>
+	<%= link_to "Delete", @dish, method: :delete, data: {confirm: "You sure? All Associated Photos Will Also Be Deleted" } %><br>
+<% end %>
+
+<div class="fb-like" data-href="<%= dish_url(@dish) %>" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div><br>
+
+<% @dish.assets.each do |asset| %>
+	<%= link_to image_tag(asset.photo.url(:medium)), asset.photo.url(:large), :target => "_blank" %>
+	<% if current_user?(@dish.user) %>
+		<%= link_to "X", asset, method: :delete, data: {confirm: "Do you know what you're doing?" } %>		
+	<% end %><br>
+<% end %>
