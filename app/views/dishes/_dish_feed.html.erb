@@ -1,6 +1,10 @@
-<% @recent_dishes.each do |dish| %>
-	<%= link_to image_tag(dish.assets.first.photo(:thumb)), dish %>
-	<%= link_to dish.user.name, dish.user %> cooked...
-	<%= link_to dish.name, dish_path(dish) %>
-	<%= time_ago_in_words(dish.created_at) %> ago.<br>
-<% end %>
+<%= will_paginate @dishes %>
+
+	<% @dishes.each do |dish| %>
+		<%= link_to image_tag(dish.assets.first.photo(:thumb)), dish %>
+		<%= link_to dish.user.name, dish.user %> cooked...
+		<%= link_to dish.name, dish_path(dish) %>
+		<%= time_ago_in_words(dish.created_at) %> ago.<br>
+	<% end %>
+
+<%= will_paginate @dishes %>

@@ -5,6 +5,8 @@ Search for chefs by city, style, or name.
     <%= submit_tag "Search", :name => nil %><br><br>
 <% end %>
 
+<%= will_paginate %>
+
 <% @users.each do |user| %>
   	<%= link_to user.name, user %>
     <% if current_user.admin? && !current_user?(user) %> | 
@@ -23,3 +25,5 @@ Search for chefs by city, style, or name.
     <div>Dishes: <%= user.dishes.count %></div><br>
 
 <% end %>
+
+<%= will_paginate %>

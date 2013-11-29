@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
   	@users = User.all
-  	@recent_dishes = Dish.all
+  	@dishes = Dish.paginate(page: params[:page], per_page: 20)
   end
 
   def help

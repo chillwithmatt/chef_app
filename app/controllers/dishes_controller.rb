@@ -19,6 +19,7 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find(params[:id])
+    @user = @dish.user
     if @dish.present? && @dish.assets.present?
       @photo = @dish.dish_photo
     else
@@ -32,6 +33,7 @@ class DishesController < ApplicationController
   end
 
   def edit
+    @dish_existing = Dish.find(params[:id])
     @dish = Dish.find(params[:id])
     4.times {@dish.assets.build}
   end
@@ -39,7 +41,8 @@ class DishesController < ApplicationController
   def update
     @dish = Dish.find(params[:id])
     if @dish.update_attributes(dish_params)
-      redirect_to current_user
+      redirect_to edit_dish_path(@dish)
+      flash[:success] = "Dish Updated"
     else
       4.times {@dish.assets.build}
       render 'edit'

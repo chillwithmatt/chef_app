@@ -11,6 +11,9 @@ gem 'aws-sdk'
 gem 'omniauth-facebook', '1.4.0'
 gem 'koala'
 gem 'delayed_job_active_record'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+gem 'faker', '1.1.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.top.search(params[:search])
+    @users = User.top.paginate(page: params[:page], :per_page => 20).search(params[:search])
   end
 
   def edit

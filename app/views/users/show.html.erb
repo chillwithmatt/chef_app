@@ -1,5 +1,7 @@
 <% content_for :head do %>
 		<%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
+		<%= tag :meta, property: "fb:admins", content: "3402374" %>
+		<%= tag :meta, property: "og:type", content: "website" %>
 		<%= tag :meta, property: "og:title", content: "Chef " + @user.name %>
 		<%= tag :meta, property: "og:description", content: "Check out these homecooked dishes!" %>
 	    <%= tag :meta, property: "og:url", content: user_url(@user) %>
@@ -24,7 +26,7 @@ City: <%= @user.city %><br>
 		<%= link_to "Add a dish", new_dish_path %>
 	<% end %><br>
 
-	<div class="fb-like" data-href="<%= user_url(@user) %>" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div><br>
+	<iframe src="//www.facebook.com/plugins/like.php?href=<%= user_url(@user)%> &amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=35&amp;appId=779084158783665" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true"></iframe><br>
 
 	<%= render 'users/dishes' %>
 

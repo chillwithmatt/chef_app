@@ -1,5 +1,4 @@
-<h1>Dishes#edit</h1>
-<p>Find me in app/views/dishes/edit.html.erb</p>
+<h1>Make Changes to your Dish</h1>
 
 <%= form_for(@dish,  :html => {:multipart => true} ) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
@@ -8,7 +7,15 @@
     <%= f.text_field :name %>
 
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description %><br><br>
+
+    <% @dish_existing.assets.each do |asset| %>
+        <%= image_tag(asset.photo.url(:thumb)) %>
+        <% if current_user?(@dish.user) && @dish.assets.count > 1 %>
+            <%= link_to "X", asset_path(asset), method: :delete, data: {confirm: "Do you know what you're doing?" } %>      
+        <% end %>
+    <% end %><br><br>
+
 
     <div>Add additional photos</div>
 
@@ -16,11 +23,13 @@
     	<% if asset.object.new_record? %>
     		<div><%= asset.file_field :photo %></div>
     	<% end %>
-    <% end %>
+    <% end %><br>
 
     <%= f.check_box :for_sale %>
 
-    This Dish is for Sale!<br>
+    This Dish is for Sale!<br><br>
 
-    <%= f.submit "Submit" %>
+    <%= f.submit "Update" %>
 <% end %>
+<%= link_to "Return to Profile", current_user %>
+
