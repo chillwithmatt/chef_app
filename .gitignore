@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ignore bundler config.
 /.bundle
 
@@ -18,3 +19,22 @@ doc/
 .DS_Store
 .idea
 .secret
+=======
+*.gem
+*.rbc
+.bundle
+.config
+.yardoc
+Gemfile.lock
+InstalledFiles
+_yardoc
+coverage
+doc/
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+>>>>>>> 68d99f4b83333986205453a6eac29718aed02c90

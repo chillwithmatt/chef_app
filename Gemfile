@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+<<<<<<< HEAD
 ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 
@@ -40,3 +41,8 @@ group :production do
   gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end
+=======
+
+# Specify your gem's dependencies in feedback.gemspec
+gemspec
+>>>>>>> 68d99f4b83333986205453a6eac29718aed02c90
