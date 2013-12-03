@@ -4,14 +4,18 @@
 	Description: <%= dish.description %><br>
 	
 	<% if dish.for_sale? %>
-		This Dish is for Sale! <%= mail_to @user.email, "Email Me", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %><br>
+		This dish is for sale. <%= mail_to @user.email, "Email Me", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %><br>
 	<% end %>
+	
 
 	<%= link_to image_tag(dish.assets.first.photo(:thumb)), dish %><br>
 
 	<% if current_user?(@user) %>
 		<%= link_to "Edit", edit_dish_path(dish) %>
 		<%= link_to "Delete", dish, method: :delete, data: {confirm: "You sure? All Associated Photos Will Also Be Deleted" } %>
-	<% end %><br>
+	<% end %><br><br>
+	
+
+	
 <% end %>
 

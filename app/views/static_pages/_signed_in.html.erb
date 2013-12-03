@@ -6,12 +6,13 @@ Search for chefs by city, style, or name.
 
 <h2>How it works</h2>
 <ol>
-	<li>Cook at home and add dishes to your menu.</li>
+	<li>Cook at home and <%= link_to "add dishes", new_dish_path %> to your menu.</li>
 	<li>Place your menu items up for sale (if you wish).</li>
 	<li>Share your dishes with friends.</li>
 </ol>
 
 <h2>What's Cookin?</h2>
-	<%= link_to "Add a dish", new_dish_path %><br><br>
+
+<%= link_to "Add a Dish", new_dish_path %><br>
 
 <%= render 'dishes/dish_feed' %>

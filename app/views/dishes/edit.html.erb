@@ -3,10 +3,10 @@
 <%= form_for(@dish,  :html => {:multipart => true} ) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :name %>
+    Name your dish:
     <%= f.text_field :name %>
 
-    <%= f.label :description %>
+    Description:
     <%= f.text_field :description %><br><br>
 
     <% @dish_existing.assets.each do |asset| %>
@@ -17,7 +17,7 @@
     <% end %><br><br>
 
 
-    <div>Add additional photos</div>
+    <div>Add additional photos</div><br>
 
     <%= f.fields_for :assets do |asset| %>
     	<% if asset.object.new_record? %>
@@ -27,9 +27,9 @@
 
     <%= f.check_box :for_sale %>
 
-    This Dish is for Sale!<br><br>
+    Is this dish for sale? Allow users to contact you.<br><br>
 
     <%= f.submit "Update" %>
-<% end %>
-<%= link_to "Return to Profile", current_user %>
+<% end %><br>
+<%= link_to "Return to your profile", current_user %>
 
