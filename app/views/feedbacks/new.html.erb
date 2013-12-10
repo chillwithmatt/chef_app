@@ -1,6 +1,4 @@
-<h1>Feedback</h1>
-
-<p>Please let us know what you think!</p>
+<h1>Please, tell us how you really feel.</h1>
 
 <%= form_for @feedback, :as => :feedback, :url => feedback_path, :html => {:id => "feedback_form"} do |f| %>
   <%= f.hidden_field 'page' %>
@@ -10,10 +8,6 @@
     </p>
   <% end %>
 
-  <p>
-    <%= f.label 'subject' %>
-    <%= f.select 'subject', ['Suggestion', 'Problem', 'Question', 'Other'] %>
-  </p>
   <p>
     <%= f.label 'email' %>
     <%= f.text_field 'email' %>

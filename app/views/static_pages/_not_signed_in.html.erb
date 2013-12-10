@@ -1,9 +1,14 @@
+Search for chefs by city, style, or name.
+<%= form_tag(users_path, :method => 'get') do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<h2>Get Started</h2>
 <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %><br>
 <%#= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-
-<h2>How it works</h2>
 <ol>
-	<li>Cook delicious food and create a menu of dishes.</li>
+	<li>Add a dish to your online menu when you cook at home.</li>
 	<li>Place your menu items up for sale (if you wish).</li>
 	<li>Share your dishes with friends.</li>
 </ol>
