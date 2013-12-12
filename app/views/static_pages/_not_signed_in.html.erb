@@ -5,7 +5,7 @@ Search for chefs by city, style, or name.
 <% end %>
 
 <h2>Get Started</h2>
-<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", :onclick => "_gaq.push(['_trackEvent', 'fb_signin', 'clicked'])" %><br>
+<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", onclick: "ga('send', 'event', 'fb_signin', 'click');" %><br>
 <%#= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 <ol>
 	<li><%= link_to "Add a dish", new_dish_path %> to your online menu when you cook at home.</li>
