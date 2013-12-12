@@ -1,11 +1,11 @@
 development:
   app_id: 779084158783665
-  secret: a02643ccbfada734d8bcec27effa3dc3
+  secret: a7cc42b7b8172ccc87ae5f6389b9811f
 
 test:
   app_id: 779084158783665
-  secret: a02643ccbfada734d8bcec27effa3dc3
+  secret: a7cc42b7b8172ccc87ae5f6389b9811f
 
 production:
   app_id: 779084158783665
-  secret: a02643ccbfada734d8bcec27effa3dc3
+  secret: a7cc42b7b8172ccc87ae5f6389b9811f

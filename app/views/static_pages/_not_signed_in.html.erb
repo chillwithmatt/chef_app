@@ -5,14 +5,15 @@ Search for chefs by city, style, or name.
 <% end %>
 
 <h2>Get Started</h2>
-<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %><br>
+<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", :onclick => "_gaq.push(['_trackEvent', 'fb_signin', 'clicked'])" %><br>
 <%#= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 <ol>
-	<li>Add a dish to your online menu when you cook at home.</li>
-	<li>Place your menu items up for sale (if you wish).</li>
+	<li><%= link_to "Add a dish", new_dish_path %> to your online menu when you cook at home.</li>
+	<li>Place your menu items up for sale (optional).</li>
 	<li>Share your dishes with friends.</li>
 </ol>
 
 <h2>What's Cookin?</h2>
 
 <%= render 'dishes/dish_feed' %>
+
