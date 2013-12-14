@@ -1,0 +1,158 @@
+.navbar .dropdown img {
+  border: 2px solid white;
+  margin-right: 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+#spotlight {
+  height: 360px;
+  margin-top: 50px;
+}
+
+#spotlight .container {
+  padding: 50px 0;
+}
+
+#spotlight h1 {
+  margin-top: 0;
+  margin-bottom: 40px;
+  color: white;
+}
+
+#spotlight .form-group:first-child {
+  padding-left: 0;
+}
+
+.panel .panel-heading {
+  height: 50px;
+}
+
+.panel .panel-heading h2 {
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+#how-it-works {
+  height: 455px;
+}
+
+#how-it-works li {
+  font-size: 20px;
+  margin: 25px 20px;
+}
+
+#how-it-works li .icon-border {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: #666;
+  text-align: center;
+  margin-top: 2px;
+  margin-right: 20px;
+}
+
+#how-it-works li .glyphicon {
+  top: 0px;
+  left: -1px;
+  font-size: 20px;
+  line-height: 50px;  
+  color: #fff;
+}
+
+#how-it-works .btn {
+  margin-bottom: 9px;
+}
+
+#whats-cookin .panel-body {
+  height: 403px;
+  overflow: scroll;
+}
+
+#whats-cookin .list-group {
+  margin-bottom: 15px;
+}
+
+#whats-cookin .list-group:last-child {
+  margin-bottom: 0;
+}
+
+#whats-cookin .list-group .thumbnail {
+  margin: 0 15px 0 0;
+}
+
+#whats-cookin .list-group h4 {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+#whats-cookin .list-group h4 a {
+  font-weight: bold;
+}
+
+#whats-cookin .list-group .btn {
+  margin-top: 5px;
+}
+
+footer .container {
+  padding-bottom: 10px;
+
+}
+
+#spotlight .glyphicon {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .jumbotron h1 {
+    font-size: 52px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  #spotlight .glyphicon {
+    display: inline-block;
+  }
+
+  .jumbotron h1 {
+    font-size: 62px;
+  }
+}
+
+/* USERS PAGE */
+
+#user-profile {
+  margin-top: 70px;
+}
+
+
+#menu .panel-body {
+}
+
+#menu .list-group {
+  margin-bottom: 15px;
+}
+
+#menu .list-group:last-child {
+  margin-bottom: 0;
+}
+
+#menu .list-group .thumbnail {
+  margin: 0 15px 0 0;
+}
+
+#menu .list-group h3 {
+  margin-top: 8px;
+}
+
+#menu .list-group h3 a {
+  font-weight: bold;
+}
+
+#menu .list-group .btn {
+  margin-top: 5px;
+}
+
+#menu .list-group-item-text {
+  width: 500px;
+}
