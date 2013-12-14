@@ -3,42 +3,57 @@
 <head>
   <title>BasedChef - Share and Sell what you Cook at Home</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <% content_for :stylesheets do %>
+    <%= stylesheet_link_tag "bootstrap", :media => "all" %>
+    <%= stylesheet_link_tag "bootstrap-theme", :media => "all" %>
+    <%= stylesheet_link_tag "style", :media => "all" %>
+  <% end %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <% content_for :javascripts do %>
+    <%= javascript_include_tag "bootstrap", "backstretch.min" %>
+  <% end %>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 
-<!-- google analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <!-- google analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-46197439-1', 'basedchef.com');
-  ga('send', 'pageview');
-</script>
+    ga('create', 'UA-46197439-1', 'basedchef.com');
+    ga('send', 'pageview');
+  </script>
 
 </head>
 <body>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=779084158783665";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=779084158783665";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div id="fb-root"></div>
+  <div id="fb-root"></div>
 
-<div><%= render 'layouts/header' %></div>
-<% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
+  <%= render 'layouts/header' %>
 
-<%= yield %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= value %>
+    </div>
+  <% end %>
 
-<%= debug(params) if Rails.env.development? %>
+  <%= yield %>
+
+  <%= render 'layouts/footer' %>
+
+  <%= debug(params) if Rails.env.development? %>
 
 </body>
 
