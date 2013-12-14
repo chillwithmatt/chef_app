@@ -5,16 +5,62 @@
 <% end %>
 -->
 
-<h2>Get Started</h2>
-<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", onclick: "ga('send', 'event', 'fb_signin', 'click');" %><br>
+<!-- Jumbotron -->
+<div id="spotlight" class="jumbotron">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-8">
+        <h1>Let that boy cook. Swag!</h1>
+        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'fb_signin', 'click');" %>
+      </div>
+
+    </div>
+  </div>
+</div>
 <%#= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-<ol>
-	<li><%= link_to "Add a dish", new_dish_path %> to your online menu when you cook at home.</li>
-	<li>Place your menu items up for sale (optional).</li>
-	<li>Share your dishes with friends.</li>
-</ol>
 
-<h2>What's Cookin?</h2>
+<div class="container">
+  <div class="row">
 
-<%= render 'dishes/dish_feed' %>
+    <!-- HOW IT WORKS -->
+    <div class="col-sm-5">
+      <div id="how-it-works" class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title"><span class="glyphicon glyphicon-question-sign"></span> &nbsp;How it works</h2>
+        </div>
+        <div class="panel-body">
+          <ul class="list-unstyled lead">
+            <li class="clearfix"><div class="icon-border pull-left"><span class="glyphicon glyphicon-cutlery"></span></div> Cook delicious food and create a menu of dishes.</li>
+            <li class="clearfix"><div class="icon-border pull-left"><span class="glyphicon glyphicon-usd"></span></div> Place your menu items up for sale (if you wish).</li>
+            <li class="clearfix"><div class="icon-border pull-left"><span class="glyphicon glyphicon-bullhorn"></span></div> Share dishes with friends and view other's dishes.</li>
+          </ul>
+        </div>
+        <div class="panel-footer">
+          <p class="text-center"><em>Ready to start cooking?</em></p>
+          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-primary btn-lg btn-block", onclick: "ga('send', 'event', 'fb_signin', 'click');" %>
+        </div>
+      </div>
+    </div>
 
+    <!-- WHATS COOKIN? -->
+    <div class="col-sm-7">
+      <%= render 'dishes/dish_feed' %>
+    </div>
+
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    $(document).ready(function() { 
+
+      $(".jumbotron").backstretch("img/jumbo-bg.jpg");
+
+    //   // Feedback Tab
+    //   $('.feedback_link').feedback( {
+    //       tabPosition: 'right'
+    //   }); 
+    
+    });
+  </script>

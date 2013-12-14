@@ -1,10 +1,45 @@
 <%= will_paginate @dishes %>
 
-	<% @dishes.each do |dish| %>
-		<%= link_to image_tag(dish.assets.first.photo(:thumb)), dish %>
-		<%= link_to dish.user.name, dish.user %> cooked...
-		<%= link_to dish.name, dish_path(dish) %>
-		<%= time_ago_in_words(dish.created_at) %> ago.<br>
-	<% end %>
+<div id="whats-cookin" class="panel panel-default">
+
+  <!-- Panel Header -->
+  <div class="panel-heading clearfix">
+    <h2 class="panel-title pull-left"><span class="glyphicon glyphicon-fire"></span> &nbsp;What's cookin' right now?</h2>
+    <a href="#add-dish" class="btn btn-sm btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> &nbsp;Add a Dish</a>
+  </div>
+
+  <!-- Panel Body -->
+  <div class="panel-body">
+
+  	<% @dishes.each do |dish| %>
+
+      <!-- List Item -->
+      <div class="list-group">
+        <div class="list-group-item clearfix">
+
+          <!-- List Item Thumbnail -->
+          <div class="thumbnail pull-left">
+            <%= link_to image_tag(dish.assets.first.photo(:thumb)), dish %>
+          </div>
+
+          <!-- List Item Text -->
+          <div class="pull-left">
+            <h4 class="list-group-item-heading">
+              <%= link_to dish.user.name, dish.user %>
+              cooked 
+              <%= link_to dish.name, dish_path(dish) %>
+            </h4>
+            <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
+          </div>
+
+          <a href="/users/2" class="btn btn-default btn-sm pull-right visible-lg"><span class="glyphicon glyphicon-eye-open"></span> &nbsp;View Dish</a> 
+        </div>
+      </div><!-- .list-group -->
+
+  	<% end %>
+
+  </div>
+  
+</div>
 
 <%= will_paginate @dishes %>
