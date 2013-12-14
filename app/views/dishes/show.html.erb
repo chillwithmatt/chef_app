@@ -12,7 +12,8 @@
 <% end %>
 
 <h1><%= @dish.name %></h1>
-<p>By <%= link_to "Chef " + @user.name, @user %></p>
+<p>By <%= link_to "Chef " + @user.name, @user %><br>
+<%= @user.city %></p>
 <p><%= @dish.description %></p>
 
 <% if @dish.for_sale? %>
