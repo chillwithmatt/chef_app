@@ -9,7 +9,7 @@
 <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-primary btn-sm", onclick: "ga('send', 'event', 'fb_signin', 'click');" %><br><br>
 <%#= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 <ol>
-	<li><%= link_to "Add a dish", new_dish_path %> to your online menu when you cook at home.</li>
+	<li><%= link_to "Add a dish", new_dish_path, onclick: "ga('send', 'event', 'add_dish', 'click');" %> to your online menu when you cook at home.</li>
 	<li>Place your menu items up for sale (optional).</li>
 	<li>Share your dishes with friends.</li>
 </ol>
