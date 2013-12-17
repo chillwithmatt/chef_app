@@ -1,16 +1,9 @@
 <%= will_paginate @dishes %>
 
-<div id="whats-cookin" class="panel panel-default">
+<div id="whats-cookin">
 
   <!-- Panel Header -->
-  <div class="panel-heading clearfix">
-    <h2 class="panel-title pull-left"><span class="glyphicon glyphicon-fire"></span> &nbsp;What's cookin' right now?</h2>
-    <a href="#add-dish" class="btn btn-sm btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> &nbsp;Add a Dish</a>
-  </div>
-
-  <!-- Panel Body -->
-  <div class="panel-body">
-
+    <h2><span class="glyphicon glyphicon-fire"></span> &nbsp;What's cookin' right now?</h2>
   	<% @dishes.each do |dish| %>
 
       <!-- List Item -->
@@ -38,8 +31,6 @@
 
   	<% end %>
 
-  </div>
-  
 </div>
 
 <%= will_paginate @dishes %>
