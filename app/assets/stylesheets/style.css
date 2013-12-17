@@ -23,6 +23,11 @@
   padding-left: 0;
 }
 
+#spotlight .btn {
+  padding: 16px 24px;
+  font-size: 20px;
+}
+
 .panel .panel-heading {
   height: 50px;
 }
