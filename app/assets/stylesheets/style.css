@@ -5,7 +5,7 @@
 }
 
 #spotlight {
-  height: 360px;
+  height: 500px;
   margin-top: 50px;
 }
 
@@ -26,6 +26,8 @@
 #spotlight .btn {
   padding: 16px 24px;
   font-size: 20px;
+  background-color: #3B5998;
+  border-color: #3B5998;
 }
 
 .panel .panel-heading {
@@ -88,6 +90,7 @@
 #whats-cookin .list-group h4 {
   margin-top: 8px;
   font-weight: normal;
+  font-size: 20px;
 }
 
 #whats-cookin .list-group h4 a {
