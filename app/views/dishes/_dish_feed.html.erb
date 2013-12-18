@@ -25,7 +25,7 @@
             <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
           </div>
 
-          <a href="/users/2" class="btn btn-default btn-sm pull-right visible-lg"><span class="glyphicon glyphicon-eye-open"></span> &nbsp;View Dish</a> 
+          <%= link_to "View Dish", dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %> 
         </div>
       </div><!-- .list-group -->
 
