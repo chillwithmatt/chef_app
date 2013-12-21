@@ -5,7 +5,8 @@
 }
 
 #spotlight {
-  height: 500px;
+  background-color: transparent;
+  min-height: 100%;
   margin-top: 50px;
 }
 
@@ -17,6 +18,12 @@
   margin-top: 0;
   margin-bottom: 40px;
   color: white;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.75);
+}
+
+#spotlight li {
+  color: white;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.75);
 }
 
 #spotlight .form-group:first-child {
@@ -28,6 +35,10 @@
   font-size: 20px;
   background-color: #3B5998;
   border-color: #3B5998;
+}
+
+#spotlight #sign_in {
+
 }
 
 .panel .panel-heading {
@@ -163,4 +174,13 @@ footer .container {
 
 #menu .list-group-item-text {
   width: 500px;
+}
+
+/* ABOUT */
+#about {
+  margin-top: 70px;
+}
+
+footer p {
+  color: white;
 }

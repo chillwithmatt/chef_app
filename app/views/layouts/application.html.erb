@@ -10,7 +10,8 @@
   <% end %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <% content_for :javascripts do %>
-    <%= javascript_include_tag "bootstrap", "backstretch.min" %>
+    <%= javascript_include_tag "bootstrap" %>
+    <%= javascript_include_tag "lib/ackstretch.js" %>
   <% end %>
   <%= csrf_meta_tags %>
   <%= yield :head %>

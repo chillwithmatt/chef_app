@@ -22,6 +22,7 @@
               cooked 
               <%= link_to dish.name, dish_path(dish) %>
             </h4>
+            <p><%= dish.description %></p>
             <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
           </div>
 

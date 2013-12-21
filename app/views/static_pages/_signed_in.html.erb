@@ -9,8 +9,13 @@
 <div id="spotlight" class="jumbotron">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8">
-        <h1>Let that boy cook. Swag!</h1>
+      <div class="col-sm-12">
+        <h1>Share and sell what you cook at home.</h1>
+        <ul class="list-unstyled lead">
+            <li class="clearfix">1. Cook delicious food and create a menu of dishes.</li>
+            <li class="clearfix">2. Place your menu items up for sale (if you wish).</li>
+            <li class="clearfix">3. Share dishes with friends and view other's dishes.</li>
+          </ul>
       </div>
     </div>
     <% if signed_in? %>
@@ -22,41 +27,13 @@
 </div>
 <%#= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 
-<div class="container">
-  <div class="row">
 
-    <!-- HOW IT WORKS -->
-    <div class="col-sm-5">
-      <div id="how-it-works" class="panel panel-default">
-        <div class="panel-heading">
-          <h2 class="panel-title"><span class="glyphicon glyphicon-question-sign"></span> &nbsp;How it works</h2>
-        </div>
-        <div class="panel-body">
-          <ul class="list-unstyled lead">
-            <li class="clearfix"><div class="icon-border pull-left"><span class="glyphicon glyphicon-cutlery"></span></div> Cook delicious food and create a menu of dishes.</li>
-            <li class="clearfix"><div class="icon-border pull-left"><span class="glyphicon glyphicon-usd"></span></div> Place your menu items up for sale (if you wish).</li>
-            <li class="clearfix"><div class="icon-border pull-left"><span class="glyphicon glyphicon-bullhorn"></span></div> Share dishes with friends and view other's dishes.</li>
-          </ul>
-        </div>
-
-        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-primary btn-lg btn-block", onclick: "ga('send', 'event', 'fb_signin', 'click');" %>
-
-      </div>
-    </div>
-
-    <!-- WHATS COOKIN? -->
-    <div class="col-sm-7">
-      <%= render 'dishes/dish_feed' %>
-    </div>
-
-  </div>
-</div>
 
 
   <script type="text/javascript">
     $(document).ready(function() { 
 
-      $(".jumbotron").backstretch("img/jumbo-bg.jpg");
+      $.backstretch('/assets/jumbo-bg.jpg');
 
     //   // Feedback Tab
     //   $('.feedback_link').feedback( {
