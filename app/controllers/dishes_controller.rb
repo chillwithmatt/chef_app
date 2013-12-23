@@ -29,6 +29,10 @@ before_action :signed_in_user, only: [:new, :create, :destroy, :edit, :update]
     end
   end
 
+  def index
+    @dishes = Dish.paginate(page: params[:page], :per_page => 20).search(params[:search])
+  end
+
   def destroy
     Dish.find(params[:id]).destroy
     redirect_to current_user

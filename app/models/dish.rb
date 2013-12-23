@@ -10,6 +10,22 @@ class Dish < ActiveRecord::Base
 
 	validates_presence_of :assets
 
+	def self.photo
+		self.assets.first.photo.url
+	end
+
+	def self.search(search)
+  		if search
+    		find(:all, :joins => :user, 
+    			 :conditions => ['dishes.name LIKE :search OR 
+    			 	users.name LIKE :search OR 
+    			 	users.city LIKE :search OR 
+    			 	users.style LIKE :search', {:search => "%#{search}%"}])
+  		else
+    		find(:all)
+  		end
+	end
+
 	def dish_photo
 		asset = assets.first
 		asset.photo
