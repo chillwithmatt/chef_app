@@ -3,14 +3,14 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Share and sell what you cook at home.</h1>
+        <h1>Find home cooked meals in your neighborhood.</h1>
         <ul class="list-unstyled lead">
           <li class="clearfix"> Search for dishes by name, chef, or city.</li>
           <%= form_tag(dishes_path, :method => 'get') do %>
               <%= text_field_tag :search, params[:search] %>
               <%= submit_tag "Search", :name => nil %><br><br>
           <% end %>
-          <li class="clearfix">OR</li>
+          <li class="clearfix">or</li>
         </ul>
       </div>
     </div>
