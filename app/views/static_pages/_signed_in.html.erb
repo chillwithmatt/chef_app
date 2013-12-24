@@ -4,19 +4,16 @@
     <div class="row">
       <div class="col-sm-12">
         <h1>Find home cooked meals in your neighborhood.</h1>
-        <ul class="list-unstyled lead">
-          <li class="clearfix"> Search for dishes by name, chef, or city.</li>
-          <%= form_tag(dishes_path, :method => 'get') do %>
-              <%= text_field_tag :search, params[:search] %>
-              <%= submit_tag "Search", :name => nil %><br><br>
-          <% end %>
-          <li class="clearfix">or</li>
-        </ul>
       </div>
     </div>
     <% if signed_in? %>
       <ul class="list-unstyled lead">
-        <%= link_to "Start Cooking", current_user, class: "btn btn-primary btn-lg" %>
+        <li class="clearfix"> Search for dishes by name, chef, or city.</li>
+          <%= form_tag(dishes_path, :method => 'get') do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil %><br><br>
+          <% end %>
+        <%= link_to "Be a Chef", current_user, class: "btn btn-primary btn-lg" %>
       </ul>
     <% else %>
       <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'fb_signin', 'click');" %>
