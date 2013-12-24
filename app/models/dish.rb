@@ -17,10 +17,10 @@ class Dish < ActiveRecord::Base
 	def self.search(search)
   		if search
     		find(:all, :joins => :user, 
-    			 :conditions => ['dishes.name LIKE :search OR 
+    			 :conditions => ['lower(dishes.name) LIKE :search OR 
     			 	users.name LIKE :search OR 
     			 	users.city LIKE :search OR 
-    			 	users.style LIKE :search', {:search => "%#{search}%"}])
+    			 	users.style LIKE :search', {:search => "%#{search.downcase}%"}])
   		else
     		find(:all)
   		end
