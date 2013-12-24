@@ -14,7 +14,7 @@ Search for dishes by name, chef, style, or city.
       <% end %><br>
     by <%= link_to dish.user.name, dish.user %><br>
     from <%= dish.user.city %><br>
-    Style: <%= dish.user.style %>
+    Style: <%= dish.user.style %><br><br>
 <% end %>
 
 <%= will_paginate %>

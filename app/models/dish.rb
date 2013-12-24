@@ -18,9 +18,9 @@ class Dish < ActiveRecord::Base
   		if search
     		find(:all, :joins => :user, 
     			 :conditions => ['lower(dishes.name) LIKE :search OR 
-    			 	users.name LIKE :search OR 
-    			 	users.city LIKE :search OR 
-    			 	users.style LIKE :search', {:search => "%#{search.downcase}%"}])
+    			 	lower(users.name) LIKE :search OR 
+    			 	lower(users.city) LIKE :search OR 
+    			 	lower(users.style) LIKE :search', {:search => "%#{search.downcase}%"}])
   		else
     		find(:all)
   		end
