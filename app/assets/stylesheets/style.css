@@ -176,6 +176,11 @@ footer .container {
   width: 500px;
 }
 
+/* SETTINGS */
+#settings {
+  margin-top: 70px;
+}
+
 /* ABOUT */
 #about {
   margin-top: 70px;
@@ -191,13 +196,18 @@ footer .container {
   margin-top: 70px;
 }
 
-/* SETTINGS */
-#settings {
+/* DISH PAGE */
+#dish-page {
   margin-top: 70px;
 }
 
 /* ADD DISH */
 #add-dish {
+  margin-top: 70px;
+}
+
+/* EDIT DISH */
+#edit-dish {
   margin-top: 70px;
 }
 

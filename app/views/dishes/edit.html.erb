@@ -1,35 +1,36 @@
-<h1>Make Changes to your Dish</h1>
+<div id="edit-dish" class="container">
+    <h1>Make Changes to your Dish</h1>
 
-<%= form_for(@dish,  :html => {:multipart => true} ) do |f| %>
-	<%= render 'shared/error_messages', object: f.object %>
+    <%= form_for(@dish,  :html => {:multipart => true} ) do |f| %>
+    	<%= render 'shared/error_messages', object: f.object %>
 
-    Name your dish:
-    <%= f.text_field :name %>
+        Name your dish:
+        <%= f.text_field :name %>
 
-    Description:
-    <%= f.text_field :description %><br><br>
+        Description:
+        <%= f.text_field :description %><br><br>
 
-    <% @dish_existing.assets.each do |asset| %>
-        <%= image_tag(asset.photo.url(:thumb)) %>
-        <% if current_user?(@dish.user) && @dish.assets.count > 1 %>
-            <%= link_to "X", asset_path(asset), method: :delete, data: {confirm: "Do you know what you're doing?" } %>      
-        <% end %>
-    <% end %><br><br>
+        <% @dish_existing.assets.each do |asset| %>
+            <%= image_tag(asset.photo.url(:thumb)) %>
+            <% if current_user?(@dish.user) && @dish.assets.count > 1 %>
+                <%= link_to "X", asset_path(asset), method: :delete, data: {confirm: "Do you know what you're doing?" } %>      
+            <% end %>
+        <% end %><br><br>
 
 
-    <div>Add additional photos</div><br>
+        <div>Add additional photos</div><br>
 
-    <%= f.fields_for :assets do |asset| %>
-    	<% if asset.object.new_record? %>
-    		<div><%= asset.file_field :photo %></div>
-    	<% end %>
+        <%= f.fields_for :assets do |asset| %>
+        	<% if asset.object.new_record? %>
+        		<div><%= asset.file_field :photo %></div>
+        	<% end %>
+        <% end %><br>
+
+        <%= f.check_box :for_sale %>
+
+        Is this dish for sale? Allow users to contact you.<br><br>
+
+        <%= f.submit "Update" %>
     <% end %><br>
-
-    <%= f.check_box :for_sale %>
-
-    Is this dish for sale? Allow users to contact you.<br><br>
-
-    <%= f.submit "Update" %>
-<% end %><br>
-<%= link_to "Return to your profile", current_user %>
-
+    <%= link_to "Return to your profile", current_user %>
+</div>

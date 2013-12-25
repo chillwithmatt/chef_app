@@ -1,34 +1,36 @@
-<% content_for :head do %>
-	<% if @dish.present? %>
-		<%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
-		<%= tag :meta, property: "fb:admins", content: "3402374" %>
-		<%= tag :meta, property: "og:site_name", content: "chefapp" %>
-		<%= tag :meta, property: "og:type", content: "mattchefapp:dish" %>
-		<%= tag :meta, property: "og:title", content: @dish.name %>
-		<%= tag :meta, property: "og:description", content: @dish.description %>
-	    <%= tag :meta, property: "og:url", content: dish_url(@dish) %>
-	    <%= tag :meta, property: "og:image", content: @photo %>
+<div id="dish-page" class="container">
+	<% content_for :head do %>
+		<% if @dish.present? %>
+			<%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
+			<%= tag :meta, property: "fb:admins", content: "3402374" %>
+			<%= tag :meta, property: "og:site_name", content: "chefapp" %>
+			<%= tag :meta, property: "og:type", content: "mattchefapp:dish" %>
+			<%= tag :meta, property: "og:title", content: @dish.name %>
+			<%= tag :meta, property: "og:description", content: @dish.description %>
+		    <%= tag :meta, property: "og:url", content: dish_url(@dish) %>
+		    <%= tag :meta, property: "og:image", content: @photo %>
+		<% end %>
 	<% end %>
-<% end %>
 
-<h1><%= @dish.name %></h1>
-<p>By <%= link_to "Chef " + @user.name, @user %></p>
-<p><%= @dish.description %></p>
+	<h1><%= @dish.name %></h1>
+	<p>By <%= link_to "Chef " + @user.name, @user %></p>
+	<p><%= @dish.description %></p>
 
-<% if @dish.for_sale? %>
-	This Dish is for Sale! <%= mail_to @dish.user.email, "Email Me", subject: "Message from ChefApp: "+ @dish.name, body: "Ask " + @dish.user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %><br>
-<% end %>
+	<% if @dish.for_sale? %>
+		This Dish is for Sale! <%= mail_to @dish.user.email, "Email Me", subject: "Message from ChefApp: "+ @dish.name, body: "Ask " + @dish.user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %><br>
+	<% end %>
 
-<% if current_user?(@dish.user) %>
-	<%= link_to "Edit", edit_dish_path(@dish) %>
-	<%= link_to "Delete", @dish, method: :delete, data: {confirm: "You sure? All Associated Photos Will Also Be Deleted" } %><br>
-<% end %>
+	<% if current_user?(@dish.user) %>
+		<%= link_to "Edit", edit_dish_path(@dish) %>
+		<%= link_to "Delete", @dish, method: :delete, data: {confirm: "You sure? All Associated Photos Will Also Be Deleted" } %><br>
+	<% end %>
 
-<!--iframe src="//www.facebook.com/plugins/like.php?href=<%= dish_url(@dish)%> &amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=35&amp;appId=779084158783665" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true"></iframe><br> -->
+	<!--iframe src="//www.facebook.com/plugins/like.php?href=<%= dish_url(@dish)%> &amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=35&amp;appId=779084158783665" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true"></iframe><br> -->
 
-<% @dish.assets.each do |asset| %>
-	<%= link_to image_tag(asset.photo.url(:medium)), asset.photo.url(:large), :target => "_blank" %>
-	<% if current_user?(@dish.user) && @dish.assets.count > 1 %>
-		<%= link_to "X", asset, method: :delete, data: {confirm: "Do you know what you're doing?" } %>		
-	<% end %><br>
-<% end %>
+	<% @dish.assets.each do |asset| %>
+		<%= link_to image_tag(asset.photo.url(:medium)), asset.photo.url(:large), :target => "_blank" %>
+		<% if current_user?(@dish.user) && @dish.assets.count > 1 %>
+			<%= link_to "X", asset, method: :delete, data: {confirm: "Do you know what you're doing?" } %>		
+		<% end %><br>
+	<% end %>
+</div>
