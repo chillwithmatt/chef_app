@@ -1,25 +1,26 @@
-<h1>Add a dish to your menu</h1>
+<div id="add-dish" class="container">
+    <h1>Add a dish to your menu</h1>
 
-<%= form_for(@dish, :html => {:multipart => true} ) do |f| %>
-	<%= render 'shared/error_messages', object: f.object %>
+    <%= form_for(@dish, :html => {:multipart => true} ) do |f| %>
+    	<%= render 'shared/error_messages', object: f.object %>
 
-    Name your dish:
-    <%= f.text_field :name %>
+        Name your dish:
+        <%= f.text_field :name %>
 
-    Description:
-    <%= f.text_field :description %><br><br>
+        Description:
+        <%= f.text_field :description %><br><br>
 
-    <div>Most importantly, upload some photos!</div><br>
+        <div>Most importantly, upload some photos!</div><br>
 
-    <%= f.fields_for :assets do |asset| %>
-    	<div><%= asset.file_field :photo %></div>
-    <% end %><br>
+        <%= f.fields_for :assets do |asset| %>
+        	<div><%= asset.file_field :photo %></div>
+        <% end %><br>
 
-    <%= f.check_box :for_sale %>
+        <%= f.check_box :for_sale %>
 
-    Is this dish for sale? Allow users to contact you.<br><br>
+        Is this dish for sale? Allow users to contact you.<br><br>
 
-    <%= f.submit "Submit" %>
-<% end %>
-
+        <%= f.submit "Submit" %>
+    <% end %>
+</div>
 

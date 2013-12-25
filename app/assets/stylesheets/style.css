@@ -181,6 +181,27 @@ footer .container {
   margin-top: 70px;
 }
 
+/* CHEFS */
+#chefs {
+  margin-top: 70px;
+}
+
+/* DISHES */
+#dishes {
+  margin-top: 70px;
+}
+
+/* SETTINGS */
+#settings {
+  margin-top: 70px;
+}
+
+/* ADD DISH */
+#add-dish {
+  margin-top: 70px;
+}
+
+
 footer p {
   color: white;
 }

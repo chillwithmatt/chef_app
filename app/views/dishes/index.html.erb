@@ -1,20 +1,22 @@
-<h1>Find Dishes in Your Area</h1>
-Search for dishes by name, chef, style, or city.
-<%= form_tag(dishes_path, :method => 'get') do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %><br><br>
-<% end %>
+<div id="dishes" class="container">
+	<h1>Find Dishes in Your Area</h1>
+	Search for dishes by name, chef, style, or city.
+	<%= form_tag(dishes_path, :method => 'get') do %>
+	    <%= text_field_tag :search, params[:search] %>
+	    <%= submit_tag "Search", :name => nil %><br><br>
+	<% end %>
 
-<%= will_paginate %>
+	<%= will_paginate %>
 
-<% @dishes.each do |dish| %>
-  	<%= link_to dish.name, dish %><br>
-      <% dish.assets.each do |asset| %>
-        <%= link_to image_tag(asset.photo.url(:medium)), dish %>
-      <% end %><br>
-    by <%= link_to dish.user.name, dish.user %><br>
-    from <%= dish.user.city %><br>
-    Style: <%= dish.user.style %><br><br>
-<% end %>
+	<% @dishes.each do |dish| %>
+	  	<%= link_to dish.name, dish %><br>
+	      <% dish.assets.each do |asset| %>
+	        <%= link_to image_tag(asset.photo.url(:medium)), dish %>
+	      <% end %><br>
+	    by <%= link_to dish.user.name, dish.user %><br>
+	    from <%= dish.user.city %><br>
+	    Style: <%= dish.user.style %><br><br>
+	<% end %>
 
-<%= will_paginate %>
+	<%= will_paginate %>
+</div>

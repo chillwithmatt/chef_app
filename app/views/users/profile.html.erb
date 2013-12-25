@@ -1,7 +1,8 @@
-<h1>Edit your profile</h1>
+<div id="settings" class="container">
+	<h1>Edit your profile</h1>
 
-<%= form_for(@user) do |f| %>
-  <%= render 'complete', f: f %>
-  <div><%= f.submit "Submit" %></div>
-<% end %>
-
+	<%= form_for(@user) do |f| %>
+	  <%= render 'complete', f: f %>
+	  <div><%= f.submit "Submit" %></div>
+	<% end %>
+</div>
