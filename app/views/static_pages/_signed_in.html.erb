@@ -13,7 +13,7 @@
             <%= text_field_tag :search, params[:search] %>
             <%= submit_tag "Search", :name => nil %><br><br>
           <% end %>
-        <%= link_to "Be a Chef", current_user, class: "btn btn-primary btn-lg" %>
+        <%= link_to "My Profile", current_user, class: "btn btn-primary btn-lg" %>
       </ul>
     <% else %>
       <%= link_to "Sign up with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'fb_signin', 'click');" %>
