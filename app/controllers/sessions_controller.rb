@@ -16,12 +16,23 @@ class SessionsController < ApplicationController
     def createfb
         user = User.from_omniauth(env["omniauth.auth"])
         sign_in user
-        redirect_to root_url
+        render_or_redirect
     end
 
 	def destroy
         sign_out
         redirect_to root_url
-     end
+    end
+
+    private
+        def render_or_redirect
+            page = env['omniauth.origin']
+            if env['omniauth.params']['popup']
+              @page = page
+              render 'callback', layout: false
+            else
+              redirect_to page
+            end
+        end
 
 end
