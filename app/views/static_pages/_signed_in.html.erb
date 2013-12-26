@@ -16,7 +16,7 @@
         <%= link_to "My Profile", current_user, class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'hp_profile', 'click');" %>
       </ul>
     <% else %>
-      <%= link_to_login_with "Sign up with Facebook", "/auth/facebook", { width: '660', height: '330' }%>
+      <%= link_to_login_with "Sign up with Facebook", "/auth/facebook", { width: '660', height: '330' }, onclick: "ga('send', 'event', 'fb_signup', 'click');" %>
     <% end %>
   </div>
 </div>
