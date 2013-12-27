@@ -15,7 +15,7 @@
 	        <%= link_to image_tag(asset.photo.url(:medium)), dish %>
 	      <% end %><br>
 	    by <%= link_to dish.user.name, dish.user %><br>
-	    from <%= dish.user.city %><br>
+	    <%= dish.user.city %><br>
 	    Style: <%= dish.user.style %><br><br>
 	<% end %>
 
