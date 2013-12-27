@@ -21,17 +21,18 @@
               <%= link_to dish.name, dish_path(dish) %>
             </h4>
             <p><%= dish.description %></p>
+        
             <% if dish.for_sale? %>
-				<p>This dish is for sale. <%= mail_to @user.email, "Email Me", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %></p>
-			<% end %>
-            <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
+				      <p>This dish is for sale. <%= mail_to @user.email, "Email Me", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %></p>
+			      <% end %>
+              <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
           </div>
 
           <%= link_to "View Dish", dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %> 
           <% if current_user?(@user) %>
-			<%= link_to "Edit", edit_dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %>
-			<%= link_to "Delete", dish, method: :delete, class: "btn btn-danger btn-sm pull-right visible-lg", data: {confirm: "You sure? All 	Associated Photos Will Also Be Deleted" } %>
-		<% end %>
+      			<%= link_to "Edit", edit_dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %>
+      			<%= link_to "Delete", dish, method: :delete, class: "btn btn-danger btn-sm pull-right visible-lg", data: {confirm: "You sure? All 	Associated Photos Will Also Be Deleted" } %>
+		      <% end %>
         </div>
       </div><!-- .list-group -->
 
