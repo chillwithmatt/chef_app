@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-before_action :signed_in_user, only: [:new, :create, :destroy, :edit, :update]
+before_action :signed_in_user, only: [:new, :create, :destroy, :edit, :update, :index]
 
   def new
   	@dish = Dish.new

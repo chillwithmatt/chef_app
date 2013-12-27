@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Find home cooked meals in Los Angeles.</h1>
+        <h1>Find home cooked meals in your neighborhood.</h1>
       </div>
     </div>
     <% if signed_in? %>
@@ -23,7 +23,7 @@
       <%= link_to_login_with "Connect with Facebook", "/auth/facebook", { width: '660', height: '330' } %>
     <% end %>
 
-    <%#= render 'dishes/dish_feed' %>
+    <%= render 'dishes/dish_feed' %>
 
   </div>
 </div>
