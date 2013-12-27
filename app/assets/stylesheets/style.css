@@ -81,6 +81,11 @@
   margin-bottom: 9px;
 }
 
+#whats-cookin h2 {
+  padding-top: 80px;
+  color: white;
+}
+
 #whats-cookin .panel-body {
   height: 403px;
   overflow: scroll;
