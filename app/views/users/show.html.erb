@@ -18,16 +18,18 @@
           <div class="caption">
             <h3>Chef <%= @user.name %></h3>
             <dl>
-              <dt>City</dt>
-              <dd><%= @user.city %></dd>
+              <% if @user.style.present? %>
+                <dt>City</dt>
+                <dd><%= @user.city %></dd>
+              <% end %>
               <% if @user.style.present? %>
 	              <dt>Style</dt>
 	              <dd><%= @user.style %></dd>
-	          <% end %>
-	          <% if @user.signature_dish.present? %>
+	             <% end %>
+	             <% if @user.signature_dish.present? %>
 	              <dt>Signature Dish</dt>
 	              <dd><%= @user.signature_dish %></dd>
-	          <% end %>
+	             <% end %>
             </dl>
             <% if current_user?(@user) %>
 				<%= link_to "Complete Your Profile", profile_user_path(@user), class: "btn btn-primary btn-block" %><br>
