@@ -6,7 +6,9 @@
         <h1>Share and sell home cooked meals in your neighborhood.</h1>
       </div>
     </div>
-    <% if signed_in? %>
+
+    <%= link_to "Browse Dishes", dishes_path, class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'hp_dishes', 'click');" %>
+    <%# if signed_in? %>
       <ul class="list-unstyled lead">
         
         <!--<li class="clearfix"> Search for dishes by name, chef, or city.</li>
@@ -14,14 +16,12 @@
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "Search", :name => nil, onclick: "ga('send', 'event', 'hp_search_dishes', 'click');" %><br><br>
         <% end %> -->
-        
-      <%= link_to "Browse Dishes", dishes_path, class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'hp_dishes', 'click');" %>
-
-      <%= link_to "Go to Profile", current_user, class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'hp_profile', 'click');" %>
+    
+      <%#= link_to "Go to My Profile", current_user, class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'hp_profile', 'click');" %>
       </ul>
-    <% else %>
-      <%= link_to_login_with "Connect with Facebook", "/auth/facebook", { width: '660', height: '330' } %>
-    <% end %>
+    <%# else %>
+      <%#= link_to_login_with "Connect with Facebook", "/auth/facebook", { width: '660', height: '330' } %>
+    <%# end %>
 
     <%= render 'dishes/dish_feed' %>
 
