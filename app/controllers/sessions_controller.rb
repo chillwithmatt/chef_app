@@ -26,7 +26,8 @@ class SessionsController < ApplicationController
 
     private
         def render_or_redirect
-            page = current_user
+            user = User.from_omniauth(env["omniauth.auth"])
+            page = user_path(user)
             @page = page
             if env['omniauth.params']['popup']
               render 'callback', layout: false
