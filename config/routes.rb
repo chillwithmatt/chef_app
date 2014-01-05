@@ -10,7 +10,11 @@ ChefApp::Application.routes.draw do
   resources :dishes
   resources :assets, only: [:destroy]
 
-  root  'static_pages#home'
+  root  'static_pages#buy'
+  match '/sell', to: 'static_pages#sell', via: 'get'
+  match '/about', to: 'static_pages#about', via: 'get'
+  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/help', to: 'static_pages#help', via: 'get'
 
   match 'feedbacks', to: 'feedbacks#create', :as => :feedback, via: 'post'
   match 'feedbacks/new', to: 'feedbacks#new', :as => :new_feedback, via: 'get'
@@ -23,9 +27,7 @@ ChefApp::Application.routes.draw do
 
   match '/profile', to: 'users#profile', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
-  match '/about', to: 'static_pages#about', via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
-  match '/help', to: 'static_pages#help', via: 'get'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
