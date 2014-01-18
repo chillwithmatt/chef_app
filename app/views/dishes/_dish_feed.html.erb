@@ -3,7 +3,7 @@
   <h2>What's cookin'?</h2>
 
   <% @dishes.each do |dish| %>
-    <div class="thumbnail pull-left">
+    <div class="list-group thumbnail pull-left">
       <%= link_to image_tag(dish.assets.first.photo(:medium)), dish, :target => "_blank", onclick: "ga('send', 'event', 'hp_dish_feed_img', 'click');" %>
     </div>
   <% end %>
