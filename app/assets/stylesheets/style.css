@@ -132,19 +132,19 @@ footer .container {
 }
 
 #menu .list-group {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 #menu .list-group:last-child {
   margin-bottom: 0;
 }
 
-#menu .list-group {
-  margin: 0 15px 0 0;
+#menu .pull-left h4 {
+  margin-left: 10px;
 }
 
-#menu .list-group h3 {
-  margin-top: 8px;
+#menu .pull-left p {
+  margin-left: 10px;
 }
 
 #menu .list-group h3 a {

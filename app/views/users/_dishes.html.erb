@@ -23,7 +23,7 @@
             <p><%= dish.description %></p>
         
             <% if dish.for_sale? %>
-				      <p>This dish is for sale. <%= mail_to @user.email, "Email Me", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank" %></p>
+				      <p>This dish is for sale. <%= mail_to @user.email, "Email Me", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank", onclick: "ga('send', 'event', 'email', 'click');" %></p>
 			      <% end %>
               <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
           </div>
