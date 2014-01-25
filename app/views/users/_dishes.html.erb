@@ -1,12 +1,7 @@
 <div id="menu">
 
   <!-- Panel Header -->
-    <% if @user.dishes.present? %>
-      <h2><!--span class="glyphicon glyphicon-fire"></span--> &nbsp;
-      <%= @user.name %>'s Menu</h2>
-    <% end %>
   	<% @dishes.each do |dish| %>
-
       <!-- List Item -->
       <div class="list-group">
         <div class="list-group-item clearfix">
@@ -30,11 +25,10 @@
 			      <% end %>
               <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
           </div>
-
-          <%= link_to "View Dish", dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %> 
+        
           <% if current_user?(@user) %>
-      			<%= link_to "Edit", edit_dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %>
-      			<%= link_to "Delete", dish, method: :delete, class: "btn btn-danger btn-sm pull-right visible-lg", data: {confirm: "You sure? All 	Associated Photos Will Also Be Deleted" } %>
+      			<%= link_to "Delete", dish, method: :delete, class: "btn btn-danger btn-sm pull-right visible-lg", data: {confirm: "You sure? All Associated Photos Will Also Be Deleted" } %>
+            <%= link_to "Edit", edit_dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %>
 		      <% end %>
         </div>
       </div><!-- .list-group -->

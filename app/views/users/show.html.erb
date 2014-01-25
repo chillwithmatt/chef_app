@@ -32,7 +32,7 @@
 	             <% end %>
             </dl>
             <% if current_user?(@user) %>
-				<%= link_to "Complete Your Profile", profile_user_path(@user), class: "btn btn-default btn-block" %><br>
+				<%= link_to "Complete Your Profile", profile_user_path(@user), class: "btn btn-primary btn-med" %><br>
 			<% end %> 
           </div>
         </div>
@@ -43,7 +43,7 @@
           <div id="profile-menu" class="panel panel-default">
             <div class="panel-heading">
               <h2 class="panel-title pull-left"><%= @user.name %>'s Menu</h2>
-              <%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-sm pull-right" %>
+              <%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-med pull-right" %>
             </div>
             <div class="panel-body">
               <% if !@user.dishes.present? %>
