@@ -40,16 +40,12 @@
       <!-- Menu -->
       <div class="col-sm-9">
         <% if current_user?(@user) %><br>
-        	<% if @user.dishes.present? %><br>
-        		<%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-lg" %>
-        		<%= render 'users/dishes' %>
-        	<% else %>
+        	<% if !@user.dishes.present? %><br>
         		<h2><%= @user.name %> hasn't cooked any dishes yet.</h2><br>
-        		<%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-lg" %>
-				
-			<% end %>
+        	<% end %>
+        	<%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-lg" %>
         <% end %>
-      	
+      	<%= render 'users/dishes' %>
       </div> <!-- .col-sm-9 -->
     </div><!-- .row -->
   </div><!-- .container -->
