@@ -82,7 +82,7 @@
 }
 
 #whats-cookin h2 {
-  padding-top: 60px;
+  padding-top: 25px;
   color: white;
 }
 
@@ -92,29 +92,7 @@
 }
 
 #whats-cookin .list-group {
-  margin-bottom: 15px;
-}
-
-#whats-cookin .list-group:last-child {
-  margin-bottom: 0;
-}
-
-#whats-cookin .list-group .thumbnail {
   margin: 0 15px 0 0;
-}
-
-#whats-cookin .list-group h4 {
-  margin-top: 8px;
-  font-weight: normal;
-  font-size: 20px;
-}
-
-#whats-cookin .list-group h4 a {
-  font-weight: bold;
-}
-
-#whats-cookin .list-group .btn {
-  margin-top: 5px;
 }
 
 footer .container {
@@ -154,19 +132,19 @@ footer .container {
 }
 
 #menu .list-group {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 #menu .list-group:last-child {
   margin-bottom: 0;
 }
 
-#menu .list-group .thumbnail {
-  margin: 0 15px 0 0;
+#menu .pull-left h4 {
+  margin-left: 10px;
 }
 
-#menu .list-group h3 {
-  margin-top: 8px;
+#menu .pull-left p {
+  margin-left: 10px;
 }
 
 #menu .list-group h3 a {

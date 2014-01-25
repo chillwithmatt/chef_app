@@ -40,13 +40,13 @@
       <!-- Menu -->
       <div class="col-sm-9">
         <% if current_user?(@user) %><br>
-        <%= link_to "Add a dish", new_dish_path %>
+        	<% if !@user.dishes.present? %><br>
+        		<h2><%= @user.name %> hasn't cooked any dishes yet.</h2><br>
+        	<% end %>
+        	<%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-lg" %>
         <% end %>
       	<%= render 'users/dishes' %>
       </div> <!-- .col-sm-9 -->
     </div><!-- .row -->
   </div><!-- .container -->
-
-	<!--iframe src="//www.facebook.com/plugins/like.php?href=<%= user_url(@user)%> &amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=35&amp;appId=779084158783665" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true"></iframe><br>-->
-
 
