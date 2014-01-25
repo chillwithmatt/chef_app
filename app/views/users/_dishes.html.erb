@@ -1,38 +1,35 @@
-<div id="menu">
+<% @dishes.each do |dish| %>
 
-  <!-- Panel Header -->
-  	<% @dishes.each do |dish| %>
-      <!-- List Item -->
-      <div class="list-group">
-        <div class="list-group-item clearfix">
+  <!-- List Item -->
+  <div class="list-group">
+    <div class="list-group-item clearfix">
 
-          <!-- List Item Thumbnail -->
-          <div class="thumbnail pull-left">
-            <%= link_to image_tag(dish.assets.first.photo(:thumb)), dish %>
-          </div>
+      <!-- List Item Thumbnail -->
+      <div class="thumbnail pull-left">
+        <%= link_to image_tag(dish.assets.first.photo(:thumb)), dish %>
+      </div>
 
-          <!-- List Item Text -->
-          <div class="pull-left">
-            <h4 class="list-group-item-heading">
-              <%= link_to dish.user.name, dish.user %>
-              cooked 
-              <%= link_to dish.name, dish_path(dish) %>
-            </h4>
-            <p><%= dish.description %></p>
-        
-            <% if dish.for_sale? %>
-				      <p>This dish is for sale. <%= mail_to @user.email, "Email Me", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank", onclick: "ga('send', 'event', 'email', 'click');" %></p>
-			      <% end %>
-              <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
-          </div>
-        
-          <% if current_user?(@user) %>
-      			<%= link_to "Delete", dish, method: :delete, class: "btn btn-danger btn-sm pull-right visible-lg", data: {confirm: "You sure? All Associated Photos Will Also Be Deleted" } %>
-            <%= link_to "Edit", edit_dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %>
-		      <% end %>
-        </div>
-      </div><!-- .list-group -->
+      <!-- List Item Text -->
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">
+          <%= link_to dish.user.name, dish.user %>
+          cooked 
+          <%= link_to dish.name, dish_path(dish) %>
+        </h4>
+        <p><%= dish.description %></p>
+    
+        <% if dish.for_sale? %>
+          <p>This dish is for sale. <%= mail_to @user.email, "Email Me", subject: "Message from ChefApp: "+ dish.name, body: "Ask " + @user.name + " about pricing, delivery, and other important details about this dish...", target: "_blank", onclick: "ga('send', 'event', 'email', 'click');" %></p>
+        <% end %>
+          <p class="list-group-item-text"><%= time_ago_in_words(dish.created_at) %> ago</p>
+      </div>
 
-  	<% end %>
+      <%= link_to "View Dish", dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %> 
+      <% if current_user?(@user) %>
+        <%= link_to "Edit", edit_dish_path(dish), class: "btn btn-default btn-sm pull-right visible-lg" %>
+        <%= link_to "Delete", dish, method: :delete, class: "btn btn-danger btn-sm pull-right visible-lg", data: {confirm: "You sure? All   Associated Photos Will Also Be Deleted" } %>
+      <% end %>
+    </div>
+  </div><!-- .list-group -->
 
-</div>
+<% end %>

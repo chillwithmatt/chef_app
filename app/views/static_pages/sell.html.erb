@@ -27,10 +27,15 @@
       <%= link_to_login_with "Connect with Facebook", "/auth/facebook", { width: '660', height: '330' } %>
     <% end %>
 
-    <%= render 'dishes/dish_feed' %>
 
   </div>
 </div>
+<div class="container">
+  <div class="row">
+      <%= render 'dishes/dish_feed' %>
+  </div>
+</div>
+
 <%#= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 
 
