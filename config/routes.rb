@@ -10,7 +10,8 @@ ChefApp::Application.routes.draw do
   resources :dishes
   resources :assets, only: [:destroy]
 
-  root  'static_pages#buy'
+  root  'static_pages#sell'
+  match '/buy', to: 'static_pages#buy', via: 'get'
   match '/sell', to: 'static_pages#sell', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'

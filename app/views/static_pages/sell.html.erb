@@ -4,37 +4,28 @@
     <div class="row">
       <div class="col-sm-12">
         <h1>Sell home cooked meals in your neighborhood.</h1>
-        <ul class="list-unstyled lead">
-          <li class="clearfix">1. Signup using Facebook.</li>
-          <li class="clearfix">2. Add a dish (or two) to your online menu.</li>
-          <li class="clearfix">3. Put your dishes up for sale!</li>
-        </ul>
+        <div class="box">
+          <ul class="list-unstyled lead"> 
+            <li><u>Getting Started</u></li>
+            <li class="clearfix">1. Sign up for free</li>
+            <li class="clearfix">2. Add a dish (or two) to your online menu</li>
+            <li class="clearfix">3. Put your dishes up for sale!</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <% if signed_in? %>
       <ul class="list-unstyled lead">
-        
-        <!--<li class="clearfix"> Search for dishes by name, chef, or city.</li>
-        <%= form_tag(dishes_path, :method => 'get') do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil, onclick: "ga('send', 'event', 'hp_search_dishes', 'click');" %><br><br>
-        <% end %> -->
-    
-      <%#= link_to "Go to My Profile", current_user, class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'hp_profile', 'click');" %>
+        <%= link_to "Go to My Profile", current_user, class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'hp_profile', 'click');" %>
       </ul>
     <% else %>
-      <%= link_to_login_with "Connect with Facebook", "/auth/facebook", { width: '660', height: '330' } %>
+      <%= link_to_login_with "Sign up with Facebook", "/auth/facebook", { width: '660', height: '330' } %>
     <% end %>
-
-
+    <%= render 'dishes/dish_feed' %>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-      <%= render 'dishes/dish_feed' %>
-  </div>
-</div>
+
 
 <%#= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 

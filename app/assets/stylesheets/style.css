@@ -21,9 +21,23 @@
   text-shadow: 0 1px 10px rgba(0,0,0,0.75);
 }
 
-#spotlight li {
+#spotlight .box {
+  border: 1px;
+  border-style: dashed;
+  border-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 430px;
+  height: 150px;
+}
+
+#spotlight ul {
+  padding: 15px 0 15px 15px;
   color: white;
   text-shadow: 0 1px 10px rgba(0,0,0,0.75);
+}
+
+#spotlight li {
+  font-size: 19px;
 }
 
 #spotlight .form-group:first-child {
@@ -31,8 +45,9 @@
 }
 
 #spotlight .btn {
+  margin-top: 25px;
   padding: 16px 24px;
-  font-size: 20px;
+  font-size: 22px;
   background-color: #3B5998;
   border-color: #3B5998;
 }
@@ -82,22 +97,20 @@
 }
 
 #whats-cookin h2 {
-  padding-top: 25px;
+  padding-top: 15px;
   color: white;
-}
-
-#whats-cookin .panel-body {
-  height: 403px;
-  overflow: scroll;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.75);
 }
 
 #whats-cookin .list-group {
-  margin: 0 15px 0 0;
+  margin: 0 15px 15px 0;
+  border-style: solid;
+  border-color: white;
 }
+
 
 footer .container {
   padding-bottom: 10px;
-
 }
 
 #spotlight .glyphicon {
@@ -127,16 +140,8 @@ footer .container {
   margin-top: 70px;
 }
 
-
-#menu .panel-body {
-}
-
 #menu .list-group {
-  margin-bottom: 5px;
-}
-
-#menu .list-group:last-child {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 #menu .pull-left h4 {
@@ -152,7 +157,7 @@ footer .container {
 }
 
 #menu .list-group .btn {
-  margin-top: 5px;
+  margin-top: 2px;
   margin-right: 2px;
 }
 

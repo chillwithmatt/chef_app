@@ -12,7 +12,7 @@
   <div id="user-profile" class="container">
     <div class="row">
       <!-- How it Works -->
-      <div class="col-sm-3">
+      <div class="col-md-3">
         <div class="thumbnail">
           <%= image_tag @user.avatar.url(:medium) %>
           <div class="caption">
@@ -38,7 +38,7 @@
         </div>
       </div>
       <!-- Menu -->
-      <div class="col-sm-9">
+      <div class="col-md-7">
         <% if current_user?(@user) %>
           <div id="profile-menu" class="panel panel-default">
             <div class="panel-heading">

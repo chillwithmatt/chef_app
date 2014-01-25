@@ -1,13 +1,10 @@
 <!-- Panel Header -->
-  <div class="col-xs-12">
-    <h2 style="color: #ffffff;">What's cookin'?</h2>
-  </div>
+<div id="whats-cookin">
+  <h2>What's cookin'?</h2>
+
   <% @dishes.each do |dish| %>
-    <div class="panel panel-default col-xs-12 col-sm-4 col-md-3">
-      <div class="panel-body">
-          <%= link_to image_tag(dish.assets.first.photo(:large)), dish, onclick: "ga('send', 'event', 'hp_dish_feed_img', 'click');", class: "img-responsive" %>
-          <h3 style="margin-top: 0;"><%= link_to dish.name, dish_path(dish) %></h3>
-          <p>By <%= link_to "Chef " + @user.name, @user %></p>
-      </div>
+    <div class="list-group pull-left">
+      <%= link_to image_tag(dish.assets.first.photo(:medium)), dish, onclick: "ga('send', 'event', 'hp_dish_feed_img', 'click');" %>
     </div>
   <% end %>
+</div>
