@@ -194,7 +194,15 @@ footer .container {
   margin-top: 70px;
 }
 
+#profile-menu {
+  min-height: 480px;
+}
 
+.no-items {
+  margin-top: 140px; 
+  font-size: 20px; 
+  line-height: 50px;
+}
 
 footer p {
   color: white;

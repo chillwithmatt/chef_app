@@ -39,13 +39,36 @@
       </div>
       <!-- Menu -->
       <div class="col-sm-9">
-        <% if current_user?(@user) %><br>
-        	<% if !@user.dishes.present? %><br>
-        		<h2><%= @user.name %> hasn't cooked any dishes yet.</h2><br>
-        	<% end %>
-        	<%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-lg" %>
+        <% if current_user?(@user) %>
+          <div id="profile-menu" class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title pull-left"><%= @user.name %>'s Menu</h2>
+              <%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-sm pull-right" %>
+            </div>
+            <div class="panel-body">
+              <% if !@user.dishes.present? %>
+              <p class="text-center no-items">You haven't cooked any dishes yet! 
+                <br>
+                <%= link_to "Add a dish", new_dish_path, class: "btn btn-primary btn-lg" %>
+              </p>
+              <% end %>
+              <%= render 'users/dishes' %>
+            </div>  
+          </div>
+        <% else %>
+          <div id="profile-menu" class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title pull-left"><%= @user.name %>'s Menu</h2>
+            </div>
+            <div class="panel-body">
+              <% if !@user.dishes.present? %>
+              <p class="text-center no-items"><%= @user.name %> hasn't cooked any dishes yet. 
+              </p>
+              <% end %>
+              <%= render 'users/dishes' %>
+            </div>  
+          </div>
         <% end %>
-      	<%= render 'users/dishes' %>
       </div> <!-- .col-sm-9 -->
     </div><!-- .row -->
   </div><!-- .container -->
